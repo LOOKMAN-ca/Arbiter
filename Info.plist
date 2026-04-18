@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleName</key>
+	<string>Arbiter</string>
+	<key>CFBundleDisplayName</key>
+	<string>Arbiter</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.arbiter.orchestration</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleExecutable</key>
+	<string>Arbiter</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>14.0</string>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Arbiter requires microphone access for real-time vocal command parsing.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Arbiter utilises speech recognition to process English and Italian pipeline triggers.</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<false/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>api.anthropic.com</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<false/>
+				<key>NSIncludesSubdomains</key>
+				<false/>
+			</dict>
+			<key>generativelanguage.googleapis.com</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<false/>
+				<key>NSIncludesSubdomains</key>
+				<false/>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>
