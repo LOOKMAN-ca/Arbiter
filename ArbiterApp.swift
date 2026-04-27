@@ -6,6 +6,7 @@ struct ArbiterApp: App {
     @StateObject private var engine   = OrchestrationEngine()
     @StateObject private var speech   = SpeechManager()
     @StateObject private var feedback = FeedbackManager()
+    @StateObject private var fae      = FAEManager()
 
     @FocusedValue(\.arbiterActions) private var actions
 
@@ -16,6 +17,7 @@ struct ArbiterApp: App {
                 .environmentObject(engine)
                 .environmentObject(speech)
                 .environmentObject(feedback)
+                .environmentObject(fae)
                 .preferredColorScheme(.dark)
                 .frame(minWidth: 1050, minHeight: 700)
         }

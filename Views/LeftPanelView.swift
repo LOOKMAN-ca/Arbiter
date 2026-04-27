@@ -3,6 +3,7 @@ import SwiftUI
 struct LeftPanelView: View {
     @EnvironmentObject var settings: AppSettings
     @EnvironmentObject var engine:   OrchestrationEngine
+    @EnvironmentObject var fae:      FAEManager
     @Binding var prompt:       String
     @Binding var mode:         PipelineMode
     @Binding var iterations:   Int
@@ -72,7 +73,8 @@ struct LeftPanelView: View {
                                         prompt:     prompt,
                                         mode:       mode,
                                         iterations: iterations,
-                                        settings:   settings
+                                        settings:   settings,
+                                        faeContext:  fae.contextBlock
                                     )
                                 },
                                 canExecute: true

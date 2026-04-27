@@ -39,19 +39,26 @@ final class OrchestrationEngine: ObservableObject {
 
     // MARK: — Execute
 
-    func execute(prompt: String, mode: PipelineMode, iterations: Int, settings: AppSettings) {
+    func execute(prompt: String, mode: PipelineMode, iterations: Int, settings: AppSettings, faeContext: String? = nil) {
         phase        = .running
         steps        = []
         finalOutput  = ""
         errorMessage = nil
 
+        let augmentedPrompt: String
+        if let context = faeContext {
+            augmentedPrompt = context + "\n\n" + prompt
+        } else {
+            augmentedPrompt = prompt
+        }
+
         runTask = Task {
             do {
                 switch mode {
                 case .sequential:
-                    try await runSequential(prompt: prompt, settings: settings)
+                    try await runSequential(prompt: augmentedPrompt, settings: settings)
                 case .iterative:
-                    try await runIterative(prompt: prompt, iterations: iterations, settings: settings)
+                    try await runIterative(prompt: augmentedPrompt, iterations: iterations, settings: settings)
                 }
                 self.phase = .done
             } catch is CancellationError {

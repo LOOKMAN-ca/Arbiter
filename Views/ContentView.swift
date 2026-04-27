@@ -6,12 +6,14 @@ struct ContentView: View {
     @EnvironmentObject var engine:   OrchestrationEngine
     @EnvironmentObject var speech:   SpeechManager
     @EnvironmentObject var feedback: FeedbackManager
+    @EnvironmentObject var fae:      FAEManager
 
     // Interface State
     @State private var prompt:          String = ""
     @State private var mode:            PipelineMode = .sequential
     @State private var iterations:      Int = 2
     @State private var showSettings     = false
+    @State private var showFAE          = false
     @State private var selectedLocale   = "en-US"
 
     var body: some View {
@@ -46,8 +48,16 @@ struct ContentView: View {
                 .background(Color.black.opacity(0.2))
 
                 // Output Column
-                RightPanelView(mode: mode, iterations: iterations)
-                    .frame(minWidth: 500)
+                HStack(spacing: 0) {
+                    RightPanelView(mode: mode, iterations: iterations)
+                        .frame(minWidth: 400)
+
+                    if showFAE {
+                        Divider().background(Color.arbiterBorder)
+                        FAEPanelView()
+                            .frame(minWidth: 320, idealWidth: 380, maxWidth: 480)
+                    }
+                }
             }
         }
         .background(Color.arbiterBg)
@@ -62,7 +72,7 @@ struct ContentView: View {
         .focusedValue(\.arbiterActions, ArbiterActions(
             execute: {
                 guard engine.phase != .running else { return }
-                engine.execute(prompt: prompt, mode: mode, iterations: iterations, settings: settings)
+                engine.execute(prompt: prompt, mode: mode, iterations: iterations, settings: settings, faeContext: fae.contextBlock)
             },
             validate: {
                 guard !prompt.isEmpty, engine.phase != .running else { return }
@@ -85,7 +95,8 @@ struct ContentView: View {
                     prompt:     speech.transcript,
                     mode:       mode,
                     iterations: iterations,
-                    settings:   settings
+                    settings:   settings,
+                    faeContext:  fae.contextBlock
                 )
             case .abort:
                 engine.abort()
@@ -121,16 +132,10 @@ struct ContentView: View {
                         .foregroundColor(.arbiterCyan)
                 }
                 .glassEffect(.regular.tint(.cyan), in: .rect(cornerRadius: 8))
-                VStack(alignment: .leading, spacing: 1) {
-                    Text("ARBITER")
-                        .font(ArbiterFont.mono(15).bold())
-                        .foregroundColor(.arbiterCyan)
-                        .tracking(5)
-                    Text("Photon Core v1.0")
-                        .font(ArbiterFont.mono(8))
-                        .foregroundColor(.arbiterCyan.opacity(0.7))
-                        .tracking(1)
-                }
+                Text("ARBITER")
+                    .font(ArbiterFont.mono(15).bold())
+                    .foregroundColor(.arbiterCyan)
+                    .tracking(5)
             }
 
             Spacer()
@@ -145,6 +150,26 @@ struct ContentView: View {
                 Text(engine.phase.displayLabel)
                     .font(ArbiterFont.mono(10).bold())
                     .foregroundColor(phaseColor)
+
+                Button { showFAE.toggle() } label: {
+                    HStack(spacing: 4) {
+                        Image(systemName: "globe.desk")
+                            .foregroundColor(showFAE ? .arbiterCyan : .arbiterCyan.opacity(0.5))
+                        Text("FAE")
+                            .font(ArbiterFont.mono(8).bold())
+                            .foregroundColor(showFAE ? .arbiterCyan : .arbiterCyan.opacity(0.5))
+                        if fae.hasAttachedContext {
+                            Text("\(fae.attachedResults.count)")
+                                .font(ArbiterFont.mono(7).bold())
+                                .foregroundColor(.arbiterCyan)
+                                .padding(.horizontal, 4)
+                                .padding(.vertical, 1)
+                                .background(Color.arbiterCyan.opacity(0.15))
+                                .clipShape(RoundedRectangle(cornerRadius: 3))
+                        }
+                    }
+                }
+                .buttonStyle(.plain)
 
                 Button {
                     showSettings = true
