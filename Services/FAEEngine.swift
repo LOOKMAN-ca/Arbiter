@@ -6,9 +6,9 @@ import os
 // Pure planning logic. No networking. Transforms a user topic into
 // a set of typed query plans ready for execution by FAEFetcher.
 
-private let logger = Logger(subsystem: "com.LOOKMAN.Arbiter", category: "FAEEngine")
-
 enum FAEEngine {
+
+    private nonisolated static let logger = Logger(subsystem: "com.LOOKMAN.Arbiter", category: "FAEEngine")
 
     // MARK: - Semantic Mesh Entry
 
@@ -20,7 +20,7 @@ enum FAEEngine {
     // Bilingual (IT + EN) semantic mesh.
     // Both English and Italian terms trigger the same entry, fixing
     // the Python source's unidirectional coverage gap.
-    private static let semanticMesh: [MeshEntry] = [
+    private nonisolated static let semanticMesh: [MeshEntry] = [
         MeshEntry(
             keywords: ["healthcare", "sanità", "salute", "medicina", "health", "medical",
                        "FSE", "fascicolo sanitario", "ospedale", "hospital"],

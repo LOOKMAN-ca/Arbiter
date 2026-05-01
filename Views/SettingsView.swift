@@ -4,9 +4,11 @@ struct SettingsView: View {
     @EnvironmentObject var settings: AppSettings
     @Environment(\.dismiss) var dismiss
 
-    @State private var claudeKey           = ""
-    @State private var geminiKey           = ""
-    @State private var claudeModel         = ""
+    @State private var claudeEmail          = ""
+    @State private var claudePassword       = ""
+    @State private var geminiEmail          = ""
+    @State private var geminiPassword       = ""
+    @State private var claudeModel          = ""
     @State private var geminiModel         = ""
     @State private var systemPromptOverride = ""
 
@@ -33,8 +35,10 @@ struct SettingsView: View {
         }
         .background(Color.arbiterBg)
         .onAppear {
-            claudeKey            = settings.claudeKey
-            geminiKey            = settings.geminiKey
+            claudeEmail          = settings.claudeEmail
+            claudePassword       = settings.claudePassword
+            geminiEmail          = settings.geminiEmail
+            geminiPassword       = settings.geminiPassword
             claudeModel          = settings.claudeModel
             geminiModel          = settings.geminiModel
             systemPromptOverride = settings.systemPromptOverride
@@ -49,15 +53,20 @@ struct SettingsView: View {
                 .font(ArbiterFont.mono(10).bold())
                 .foregroundColor(.arbiterCyan)
 
-            SecureField("API KEY", text: $claudeKey)
+            TextField("EMAIL", text: $claudeEmail)
                 .textFieldStyle(.roundedBorder)
                 .font(ArbiterFont.mono(11))
-                .onChange(of: claudeKey) { _, _ in claudeTest = .idle }
+                .onChange(of: claudeEmail) { _, _ in claudeTest = .idle }
+
+            SecureField("PASSWORD", text: $claudePassword)
+                .textFieldStyle(.roundedBorder)
+                .font(ArbiterFont.mono(11))
+                .onChange(of: claudePassword) { _, _ in claudeTest = .idle }
 
             Button(claudeTestLabel) { testClaude() }
                 .font(ArbiterFont.mono(10))
                 .foregroundColor(testStateColor(claudeTest))
-                .disabled(claudeTest == .testing || claudeKey.isEmpty)
+                .disabled(claudeTest == .testing || claudePassword.isEmpty)
 
             Picker("MODEL", selection: $claudeModel) {
                 ForEach(ModelCatalog.claude) { Text($0.label).tag($0.id) }
@@ -75,15 +84,20 @@ struct SettingsView: View {
                 .font(ArbiterFont.mono(10).bold())
                 .foregroundColor(.arbiterCyan)
 
-            SecureField("API KEY", text: $geminiKey)
+            TextField("EMAIL", text: $geminiEmail)
                 .textFieldStyle(.roundedBorder)
                 .font(ArbiterFont.mono(11))
-                .onChange(of: geminiKey) { _, _ in geminiTest = .idle }
+                .onChange(of: geminiEmail) { _, _ in geminiTest = .idle }
+
+            SecureField("PASSWORD", text: $geminiPassword)
+                .textFieldStyle(.roundedBorder)
+                .font(ArbiterFont.mono(11))
+                .onChange(of: geminiPassword) { _, _ in geminiTest = .idle }
 
             Button(geminiTestLabel) { testGemini() }
                 .font(ArbiterFont.mono(10))
                 .foregroundColor(testStateColor(geminiTest))
-                .disabled(geminiTest == .testing || geminiKey.isEmpty)
+                .disabled(geminiTest == .testing || geminiPassword.isEmpty)
 
             Picker("MODEL", selection: $geminiModel) {
                 ForEach(ModelCatalog.gemini) { Text($0.label).tag($0.id) }
@@ -172,7 +186,7 @@ struct SettingsView: View {
 
     private func testClaude() {
         claudeTest = .testing
-        let key   = claudeKey
+        let key   = claudePassword
         let model = claudeModel.isEmpty ? ModelCatalog.claude.first!.id : claudeModel
         Task {
             do {
@@ -197,7 +211,7 @@ struct SettingsView: View {
 
     private func testGemini() {
         geminiTest = .testing
-        let key   = geminiKey
+        let key   = geminiPassword
         let model = geminiModel.isEmpty ? ModelCatalog.gemini.first!.id : geminiModel
         Task {
             do {
@@ -218,8 +232,10 @@ struct SettingsView: View {
     // MARK: — Save
 
     private func saveAndDismiss() {
-        settings.claudeKey            = claudeKey
-        settings.geminiKey            = geminiKey
+        settings.claudeEmail          = claudeEmail
+        settings.claudePassword       = claudePassword
+        settings.geminiEmail          = geminiEmail
+        settings.geminiPassword       = geminiPassword
         settings.claudeModel          = claudeModel
         settings.geminiModel          = geminiModel
         settings.systemPromptOverride = systemPromptOverride

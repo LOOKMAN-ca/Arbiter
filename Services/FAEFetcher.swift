@@ -15,9 +15,9 @@ import os
 // DECIDE §4.9: Global concurrency cap of 10. Per-host throttling
 // deferred to v2 — most queries hit distinct hosts anyway.
 
-private let fetcherLogger = Logger(subsystem: "com.LOOKMAN.Arbiter", category: "FAEFetcher")
-
 actor FAEFetcher {
+    private nonisolated static let fetcherLogger = Logger(subsystem: "com.LOOKMAN.Arbiter", category: "FAEFetcher")
+
     private let session: URLSession
     private let maxConcurrent: Int
     private let perRequestTimeout: TimeInterval

@@ -12,13 +12,13 @@ struct ModelOption: Identifiable {
 // MARK: — Model Catalog
 // Single source of truth for available models. Update IDs here when new versions release.
 enum ModelCatalog {
-    static let claude: [ModelOption] = [
+    nonisolated static let claude: [ModelOption] = [
         ModelOption(id: "claude-sonnet-4-5-20250514", label: "Claude Sonnet 4.5"),
         ModelOption(id: "claude-3-5-sonnet-20241022", label: "Claude 3.5 Sonnet"),
         ModelOption(id: "claude-3-5-haiku-20241022",  label: "Claude 3.5 Haiku"),
     ]
 
-    static let gemini: [ModelOption] = [
+    nonisolated static let gemini: [ModelOption] = [
         ModelOption(id: "gemini-2.5-flash-preview-04-17", label: "Gemini 2.5 Flash"),
         ModelOption(id: "gemini-2.0-flash",               label: "Gemini 2.0 Flash"),
         ModelOption(id: "gemini-1.5-pro",                 label: "Gemini 1.5 Pro"),

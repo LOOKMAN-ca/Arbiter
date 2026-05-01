@@ -65,7 +65,7 @@ struct FAEPortal: Codable, Identifiable, Hashable, Sendable {
 extension FAEPortal {
 
     // swiftlint:disable function_body_length
-    static let registry: [FAEPortal] = {
+    nonisolated static let registry: [FAEPortal] = {
         var portals: [FAEPortal] = []
 
         func add(_ id: String, _ name: String, _ api: FAEAPIType, _ tier: FAEAccuracyTier,

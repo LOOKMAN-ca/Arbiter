@@ -15,7 +15,7 @@ struct LeftPanelView: View {
                 VStack(alignment: .leading, spacing: 20) {
 
                     // ── Warning: API Status ────────────────────────────────
-                    if settings.claudeKey.isEmpty || settings.geminiKey.isEmpty {
+                    if settings.claudePassword.isEmpty || settings.geminiPassword.isEmpty {
                         warningBanner
                     }
 
@@ -90,7 +90,7 @@ struct LeftPanelView: View {
 
     private var warningBanner: some View {
         HStack {
-            Text("⚠ API Keys Missing")
+            Text("⚠ Login Credentials Missing")
                 .font(ArbiterFont.mono(10))
                 .foregroundColor(.orange)
             Spacer()

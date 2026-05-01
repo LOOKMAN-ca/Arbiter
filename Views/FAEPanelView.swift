@@ -3,23 +3,32 @@ import SwiftUI
 // MARK: - FAE Panel View
 
 struct FAEPanelView: View {
-    @EnvironmentObject var faeManager: FAEManager
-    @State private var searchText = ""
+    @EnvironmentObject var faeManager:   FAEManager
+    @EnvironmentObject var registry:     FAEActiveRegistry
+    @EnvironmentObject var verification: FAEVerificationManager
+    @State private var searchText        = ""
+    @State private var showVerification  = false
 
     var body: some View {
         VStack(spacing: 0) {
             panelHeader
             Divider().background(Color.arbiterBorder)
-            ScrollView {
-                VStack(alignment: .leading, spacing: 16) {
-                    searchSection
-                    filterBar
-                    if faeManager.isSearching { progressSection }
-                    if !faeManager.filteredResults.isEmpty { resultsSection }
-                    if !faeManager.failedPortals.isEmpty && !faeManager.isSearching { failedSection }
-                    if !faeManager.attachedResults.isEmpty { attachedSection }
+            if showVerification {
+                FAEVerificationView()
+                    .environmentObject(registry)
+                    .environmentObject(verification)
+            } else {
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 16) {
+                        searchSection
+                        filterBar
+                        if faeManager.isSearching { progressSection }
+                        if !faeManager.filteredResults.isEmpty { resultsSection }
+                        if !faeManager.failedPortals.isEmpty && !faeManager.isSearching { failedSection }
+                        if !faeManager.attachedResults.isEmpty { attachedSection }
+                    }
+                    .padding(16)
                 }
-                .padding(16)
             }
         }
         .background(Color.arbiterBg)
@@ -43,6 +52,19 @@ struct FAEPanelView: View {
             if faeManager.hasAttachedContext {
                 attachedBadge
             }
+            // Registry verification toggle
+            Button {
+                showVerification.toggle()
+            } label: {
+                HStack(spacing: 4) {
+                    Image(systemName: showVerification ? "checkmark.shield.fill" : "checkmark.shield")
+                        .font(.system(size: 9))
+                    Text("VERIFY")
+                        .font(ArbiterFont.mono(8).bold())
+                }
+                .foregroundColor(registry.needsVerification ? .orange : .arbiterCyan.opacity(0.6))
+            }
+            .buttonStyle(.plain)
         }
         .padding(.horizontal, 16)
         .frame(height: 40)
@@ -84,7 +106,7 @@ struct FAEPanelView: View {
                         RoundedRectangle(cornerRadius: 8)
                             .stroke(Color.arbiterBorder, lineWidth: 0.5)
                     )
-                    .onSubmit { faeManager.search(topic: searchText) }
+                    .onSubmit { faeManager.search(topic: searchText, portals: registry.activeFAEPortals) }
 
                 if faeManager.isSearching {
                     Button { faeManager.cancelSearch() } label: {
@@ -93,7 +115,7 @@ struct FAEPanelView: View {
                     }
                     .buttonStyle(.plain)
                 } else {
-                    Button { faeManager.search(topic: searchText) } label: {
+                    Button { faeManager.search(topic: searchText, portals: registry.activeFAEPortals) } label: {
                         Image(systemName: "magnifyingglass")
                             .foregroundColor(.arbiterCyan.opacity(searchText.isEmpty ? 0.3 : 0.9))
                     }
@@ -264,6 +286,8 @@ struct FAEPanelView: View {
 #Preview {
     FAEPanelView()
         .environmentObject(FAEManager())
+        .environmentObject(FAEActiveRegistry())
+        .environmentObject(FAEVerificationManager())
         .frame(width: 400, height: 600)
         .preferredColorScheme(.dark)
 }

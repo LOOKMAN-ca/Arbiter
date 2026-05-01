@@ -34,7 +34,7 @@ final class FAEManager: ObservableObject {
 
     // MARK: - Search
 
-    func search(topic: String) {
+    func search(topic: String, portals: [FAEPortal]? = nil) {
         guard !topic.trimmingCharacters(in: .whitespaces).isEmpty else { return }
 
         searchTask?.cancel()
@@ -46,7 +46,7 @@ final class FAEManager: ObservableObject {
 
         searchTask = Task {
             let expanded = FAEEngine.expand(topic: topic)
-            let plans = FAEEngine.plan(expanded: expanded, strictAccuracy: strictAccuracy)
+            let plans = FAEEngine.plan(expanded: expanded, portals: portals ?? FAEPortal.registry, strictAccuracy: strictAccuracy)
             activePlans = plans
 
             managerLogger.info("FAE search: '\(topic)' → \(plans.count) plans")
@@ -164,7 +164,7 @@ final class FAEManager: ObservableObject {
 
 // MARK: - ConversationContextProvider Conformance
 
-extension FAEManager: @preconcurrency ConversationContextProvider {
+extension FAEManager: ConversationContextProvider {
     nonisolated var providerID: String { "fae" }
 
     func contextFragments(for prompt: String) async -> [ContextFragment] {
@@ -184,8 +184,7 @@ extension FAEManager: @preconcurrency ConversationContextProvider {
 
         let topItems = Array(allItems.prefix(5))
         return topItems.map { item in
-            let portal = FAEPortal.registry.first { $0.id == item.portalID }
-            return ContextFragment(
+            ContextFragment(
                 providerID: providerID,
                 title: item.title,
                 body: item.snippet ?? item.title,

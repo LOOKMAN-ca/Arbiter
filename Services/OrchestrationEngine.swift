@@ -26,7 +26,7 @@ final class OrchestrationEngine: ObservableObject {
             do {
                 let result = try await ValidationEngine.validate(
                     prompt: prompt,
-                    apiKey: settings.claudeKey
+                    apiKey: settings.claudePassword
                 )
                 self.validation = result
                 self.phase      = .validated
@@ -98,7 +98,7 @@ final class OrchestrationEngine: ObservableObject {
         let draft = try await ClaudeClient.stream(
             messages: [["role": "user", "content": prompt]],
             system:   settings.effectiveSystemPrompt,
-            apiKey:   settings.claudeKey,
+            apiKey:   settings.claudePassword,
             model:    settings.claudeModel,
             onToken:  { [weak self] text in
                 Task { @MainActor [weak self] in self?.updateStep(id: step1id, content: text) }
@@ -120,7 +120,7 @@ final class OrchestrationEngine: ObservableObject {
             """
         let critique = try await GeminiClient.stream(
             prompt:  critiquePrompt,
-            apiKey:  settings.geminiKey,
+            apiKey:  settings.geminiPassword,
             model:   settings.geminiModel,
             onToken: { [weak self] text in
                 Task { @MainActor [weak self] in self?.updateStep(id: step2id, content: text) }
@@ -145,7 +145,7 @@ final class OrchestrationEngine: ObservableObject {
         let final = try await ClaudeClient.stream(
             messages: [["role": "user", "content": synthPrompt]],
             system:   "Produce a final refined answer integrating valid critique. Be direct, accurate, complete.",
-            apiKey:   settings.claudeKey,
+            apiKey:   settings.claudePassword,
             model:    settings.claudeModel,
             onToken:  { [weak self] text in
                 Task { @MainActor [weak self] in self?.updateStep(id: step3id, content: text) }
@@ -165,7 +165,7 @@ final class OrchestrationEngine: ObservableObject {
         var current = try await ClaudeClient.stream(
             messages: [["role": "user", "content": prompt]],
             system:   settings.effectiveSystemPrompt,
-            apiKey:   settings.claudeKey,
+            apiKey:   settings.claudePassword,
             model:    settings.claudeModel,
             onToken:  { [weak self] text in
                 Task { @MainActor [weak self] in self?.updateStep(id: s0id, content: text) }
@@ -190,7 +190,7 @@ final class OrchestrationEngine: ObservableObject {
                 """
             let critique = try await GeminiClient.stream(
                 prompt:  critiquePrompt,
-                apiKey:  settings.geminiKey,
+                apiKey:  settings.geminiPassword,
                 model:   settings.geminiModel,
                 onToken: { [weak self] text in
                     Task { @MainActor [weak self] in self?.updateStep(id: scId, content: text) }
@@ -215,7 +215,7 @@ final class OrchestrationEngine: ObservableObject {
             current = try await ClaudeClient.stream(
                 messages: [["role": "user", "content": revisePrompt]],
                 system:   "Revise your previous response based on valid critique. Improve accuracy and completeness.",
-                apiKey:   settings.claudeKey,
+                apiKey:   settings.claudePassword,
                 model:    settings.claudeModel,
                 onToken:  { [weak self] text in
                     Task { @MainActor [weak self] in self?.updateStep(id: srId, content: text) }

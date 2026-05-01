@@ -2,11 +2,13 @@ import SwiftUI
 
 @main
 struct ArbiterApp: App {
-    @StateObject private var settings = AppSettings()
-    @StateObject private var engine   = OrchestrationEngine()
-    @StateObject private var speech   = SpeechManager()
-    @StateObject private var feedback = FeedbackManager()
-    @StateObject private var fae      = FAEManager()
+    @StateObject private var settings     = AppSettings()
+    @StateObject private var engine       = OrchestrationEngine()
+    @StateObject private var speech       = SpeechManager()
+    @StateObject private var feedback     = FeedbackManager()
+    @StateObject private var fae          = FAEManager()
+    @StateObject private var registry     = FAEActiveRegistry()
+    @StateObject private var verification = FAEVerificationManager()
 
     @FocusedValue(\.arbiterActions) private var actions
 
@@ -18,8 +20,11 @@ struct ArbiterApp: App {
                 .environmentObject(speech)
                 .environmentObject(feedback)
                 .environmentObject(fae)
+                .environmentObject(registry)
+                .environmentObject(verification)
                 .preferredColorScheme(.dark)
                 .frame(minWidth: 1050, minHeight: 700)
+                .task { registry.load() }
         }
         .windowStyle(.hiddenTitleBar)
         .commands {

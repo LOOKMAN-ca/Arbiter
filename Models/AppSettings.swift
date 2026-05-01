@@ -3,13 +3,19 @@ import Combine
 
 final class AppSettings: ObservableObject {
 
-    // MARK: — API Keys (Keychain-backed)
+    // MARK: — Login Credentials (Keychain-backed)
 
-    @Published var claudeKey: String = "" {
-        didSet { KeychainHelper.save(key: "claudeKey", value: claudeKey) }
+    @Published var claudeEmail:    String = "" {
+        didSet { KeychainHelper.save(key: "claudeEmail",    value: claudeEmail) }
     }
-    @Published var geminiKey: String = "" {
-        didSet { KeychainHelper.save(key: "geminiKey", value: geminiKey) }
+    @Published var claudePassword: String = "" {
+        didSet { KeychainHelper.save(key: "claudePassword", value: claudePassword) }
+    }
+    @Published var geminiEmail:    String = "" {
+        didSet { KeychainHelper.save(key: "geminiEmail",    value: geminiEmail) }
+    }
+    @Published var geminiPassword: String = "" {
+        didSet { KeychainHelper.save(key: "geminiPassword", value: geminiPassword) }
     }
 
     // MARK: — Model Selection (UserDefaults-backed)
@@ -41,8 +47,10 @@ final class AppSettings: ObservableObject {
     // MARK: — Init
 
     init() {
-        self.claudeKey = KeychainHelper.load(key: "claudeKey")
-        self.geminiKey = KeychainHelper.load(key: "geminiKey")
+        self.claudeEmail    = KeychainHelper.load(key: "claudeEmail")
+        self.claudePassword = KeychainHelper.load(key: "claudePassword")
+        self.geminiEmail    = KeychainHelper.load(key: "geminiEmail")
+        self.geminiPassword = KeychainHelper.load(key: "geminiPassword")
 
         if let saved = UserDefaults.standard.string(forKey: "claudeModel"), !saved.isEmpty {
             self.claudeModel = saved

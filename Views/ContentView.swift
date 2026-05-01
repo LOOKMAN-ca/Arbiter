@@ -142,8 +142,8 @@ struct ContentView: View {
 
             // Status strip
             HStack(spacing: 20) {
-                statusIndicator(label: "CLAUDE", active: !settings.claudeKey.isEmpty)
-                statusIndicator(label: "GEMINI", active: !settings.geminiKey.isEmpty)
+                statusIndicator(label: "CLAUDE", active: !settings.claudePassword.isEmpty)
+                statusIndicator(label: "GEMINI", active: !settings.geminiPassword.isEmpty)
 
                 Divider().frame(height: 14).background(Color.arbiterBorder)
 
