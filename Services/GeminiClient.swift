@@ -86,7 +86,7 @@ enum GeminiClient {
         let body: [String: Any] = [
             "contents": [["parts": [["text": prompt]]]],
             "generationConfig": [
-                "temperature":     0.4,
+                "temperature":     0.65,
                 "maxOutputTokens": 2048,
             ]
         ]
