@@ -19,7 +19,8 @@ enum ProbeOutcome: Sendable {
         case .live(_, false, _): return .probedDegraded
         case .degraded:          return .probedDegraded
         case .dead:              return .probedFailed
-        case .requiresAuth:      return .probedFailed
+        // 401/403 means the server is alive but auth-gated; degrade rather than fail.
+        case .requiresAuth:      return .probedDegraded
         case .skipped:           return .documentedEndpoint  // existing label preserved by FAEVerifier
         }
     }
@@ -96,7 +97,9 @@ enum ProbeDispatcher {
     }
 
     // MARK: - CKAN
-    // GET {url}?q=test&rows=1 (append /api/3/action/package_search if not already present)
+    // GET {url}?q=*:*&rows=0 (append /api/3/action/package_search if not already present)
+    // rows=0 with wildcard returns the success envelope without fetching any records,
+    // which is less likely to trigger WAF blocks than a keyword search with results.
     // Shape: success:true AND result.results array
 
     private static func probeCKAN(entry: PortalEntry, session: URLSession) async -> ProbeOutcome {
@@ -104,7 +107,7 @@ enum ProbeDispatcher {
         if !base.path.contains("package_search") {
             base = base.appendingPathComponent("api/3/action/package_search")
         }
-        guard let url = url(base, queryItems: [qi("q", "test"), qi("rows", "1")]) else {
+        guard let url = url(base, queryItems: [qi("q", "*:*"), qi("rows", "0")]) else {
             return .dead(reason: "invalid URL construction")
         }
         return await fetchAndCheck(url: url, session: session, accept: "application/json") { data, status in
@@ -120,12 +123,13 @@ enum ProbeDispatcher {
     }
 
     // MARK: - DKAN
-    // GET {url}/api/3/action/package_search?q=test&limit=1
+    // GET {url}/api/3/action/package_search?q=*:*&limit=0
+    // Same wildcard+zero-rows strategy as CKAN to avoid WAF fingerprinting.
     // Shape: same as CKAN
 
     private static func probeDKAN(entry: PortalEntry, session: URLSession) async -> ProbeOutcome {
         let base = entry.url.appendingPathComponent("api/3/action/package_search")
-        guard let url = url(base, queryItems: [qi("q", "test"), qi("limit", "1")]) else {
+        guard let url = url(base, queryItems: [qi("q", "*:*"), qi("limit", "0")]) else {
             return .dead(reason: "invalid URL construction")
         }
         return await fetchAndCheck(url: url, session: session, accept: "application/json") { data, status in
@@ -166,30 +170,48 @@ enum ProbeDispatcher {
     }
 
     // MARK: - SDMX
-    // GET {url} Accept: application/vnd.sdmx.data+json, fallback to application/xml
-    // Shape: parseable JSON or XML; NOT HTML
+    // GET {serviceRoot}/  Accept: application/vnd.sdmx.structure+xml;version=2.1
+    // Navigate to the service root (strip any trailing "data" path segment) and request
+    // the structure/dataflow catalogue — small XML response, avoids fetching actual data
+    // which can be enormous and is what triggers timeouts and WAF blocks.
+    // Shape: XML containing Structure, DataFlow, Header, or CompactData elements.
 
     private static func probeSDMX(entry: PortalEntry, session: URLSession) async -> ProbeOutcome {
-        let accept = "application/vnd.sdmx.data+json;version=1.0.0, application/xml;q=0.9"
-        return await fetchAndCheck(url: entry.url, session: session, accept: accept) { data, status in
-            let ct = String(data: data.prefix(500), encoding: .utf8) ?? ""
-            if ct.lowercased().contains("<html") {
+        var components = URLComponents(url: entry.url, resolvingAgainstBaseURL: false)
+        var path = components?.path ?? ""
+        // Strip trailing "data" path segment to reach the service root
+        for suffix in ["/data/", "/data"] where path.hasSuffix(suffix) {
+            path = String(path.dropLast(suffix.count))
+        }
+        if !path.hasSuffix("/") { path += "/" }
+        components?.path = path
+        let probeURL = components?.url ?? entry.url
+
+        let accept = "application/vnd.sdmx.structure+xml;version=2.1, application/xml;q=0.9"
+        return await fetchAndCheck(url: probeURL, session: session, accept: accept) { data, status in
+            let text = String(data: data.prefix(1000), encoding: .utf8) ?? ""
+            if text.lowercased().contains("<html") {
                 return (false, "HTML response — not an SDMX endpoint")
             }
-            // Valid if JSON or XML
-            if parseJSON(data) != nil || ct.contains("<?xml") || ct.contains("<message:") || ct.contains("<CompactData") {
+            if text.contains("Structure") || text.contains("DataFlow") || text.contains("Dataflow")
+                || text.contains("Header") || text.contains("<?xml") || text.contains("<CompactData") {
                 return (true, "SDMX \(status)")
+            }
+            if parseJSON(data) != nil {
+                return (true, "SDMX \(status) (JSON)")
             }
             return (false, preview(data))
         }
     }
 
     // MARK: - SPARQL
-    // GET {url}?query=SELECT * WHERE {?s ?p ?o} LIMIT 1&format=json
+    // GET {url}?query=SELECT * WHERE {} LIMIT 1&format=json
+    // Empty graph pattern {} returns a single empty solution in ~0ms on any triplestore;
+    // ?s ?p ?o requires a full-graph scan and can time out on large datasets.
     // Shape: JSON with "head" and "results.bindings"
 
     private static func probeSPARQL(entry: PortalEntry, session: URLSession) async -> ProbeOutcome {
-        let sparqlQuery = "SELECT * WHERE { ?s ?p ?o } LIMIT 1"
+        let sparqlQuery = "SELECT * WHERE {} LIMIT 1"
         guard let url = url(entry.url, queryItems: [qi("query", sparqlQuery), qi("format", "json")]) else {
             return .dead(reason: "invalid URL construction")
         }
@@ -240,10 +262,13 @@ enum ProbeDispatcher {
     }
 
     // MARK: - GeoJSON
-    // GET {url} — check response is JSON (not HTML)
+    // GET {url}?limit=1 — fetch one feature to confirm shape without downloading a full dataset
 
     private static func probeGeoJSON(entry: PortalEntry, session: URLSession) async -> ProbeOutcome {
-        return await fetchAndCheck(url: entry.url, session: session, accept: "application/geo+json, application/json") { data, status in
+        guard let url = url(entry.url, queryItems: [qi("limit", "1")]) else {
+            return .dead(reason: "invalid URL construction")
+        }
+        return await fetchAndCheck(url: url, session: session, accept: "application/geo+json, application/json") { data, status in
             if let json = parseJSON(data) as? [String: Any] {
                 let ftype = json["type"] as? String
                 if ftype == "FeatureCollection" || ftype == "Feature" {
@@ -284,7 +309,8 @@ enum ProbeDispatcher {
     }
 
     // MARK: - GITHUB
-    // GET {url} — JSON response, not 403
+    // GET {url} — JSON response with X-GitHub-Api-Version header (required since 2022-11-28)
+    // Omitting the version header causes some GitHub API routes to return 406 or redirect to HTML.
 
     private static func probeGitHub(entry: PortalEntry, session: URLSession) async -> ProbeOutcome {
         var components = URLComponents(url: entry.url, resolvingAgainstBaseURL: false) ?? URLComponents()
@@ -292,15 +318,20 @@ enum ProbeDispatcher {
             components.queryItems = [qi("q", "test"), qi("per_page", "1")]
         }
         let probeURL = components.url ?? entry.url
-        return await fetchAndCheck(url: probeURL, session: session,
-                                   accept: "application/vnd.github+json") { data, status in
-            if status == 403 {
-                return (false, "GitHub rate limited (403)")
+        var req = request(url: probeURL, method: "GET", accept: "application/vnd.github+json")
+        req.setValue("2022-11-28", forHTTPHeaderField: "X-GitHub-Api-Version")
+        do {
+            let (data, response) = try await withRetry { try await session.data(for: req) }
+            guard let http = response as? HTTPURLResponse else { return .dead(reason: "non-HTTP response") }
+            if http.statusCode == 401 || http.statusCode == 403 { return .requiresAuth }
+            guard (200...299).contains(http.statusCode) else { return httpError(http.statusCode, entry: entry) }
+            let clean = stripBOM(data)
+            if parseJSON(clean) != nil {
+                return .live(httpStatus: http.statusCode, shapeOK: true, sample: "GitHub \(http.statusCode)")
             }
-            if parseJSON(data) != nil {
-                return (true, "GitHub \(status)")
-            }
-            return (false, preview(data))
+            return .live(httpStatus: http.statusCode, shapeOK: false, sample: preview(clean))
+        } catch {
+            return mapURLError(error, canRetry: false, entry: entry)
         }
     }
 

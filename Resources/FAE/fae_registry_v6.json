@@ -25,18 +25,30 @@
     "auth": "none | free_key | paid_key | oauth",
     "verification": "see $notes"
   },
-
   "registry": [
-
     {
       "id": "INT_WBK",
       "name": "World Bank Open Data",
       "type": "REST",
       "acc": 1,
       "url": "https://api.worldbank.org/v2/",
-      "lang": ["en", "es", "fr", "ar", "zh"],
+      "lang": [
+        "en",
+        "es",
+        "fr",
+        "ar",
+        "zh"
+      ],
       "region": "global",
-      "domains": ["economics", "demographics", "development", "spending", "labor", "education", "health"],
+      "domains": [
+        "economics",
+        "demographics",
+        "development",
+        "spending",
+        "labor",
+        "education",
+        "health"
+      ],
       "license": "CC-BY-4.0",
       "historical": true,
       "auth": "none",
@@ -48,9 +60,16 @@
       "type": "SDMX",
       "acc": 1,
       "url": "https://api.imf.org/external/sdmx/2.1/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["economics", "finance", "trade", "fiscal"],
+      "domains": [
+        "economics",
+        "finance",
+        "trade",
+        "fiscal"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -62,9 +81,20 @@
       "type": "SDMX",
       "acc": 1,
       "url": "https://sdmx.oecd.org/public/rest/data/",
-      "lang": ["en", "fr"],
+      "lang": [
+        "en",
+        "fr"
+      ],
       "region": "global",
-      "domains": ["economics", "demographics", "education", "health", "environment", "innovation", "labor"],
+      "domains": [
+        "economics",
+        "demographics",
+        "education",
+        "health",
+        "environment",
+        "innovation",
+        "labor"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -76,27 +106,20 @@
       "type": "REST",
       "acc": 1,
       "url": "https://data.un.org/ws/rest/data/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["demographics", "development", "economics", "environment"],
+      "domains": [
+        "demographics",
+        "development",
+        "economics",
+        "environment"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
-    },
-    {
-      "id": "INT_UNS",
-      "name": "UN Statistics Division (SDMX)",
-      "type": "SDMX",
-      "acc": 1,
-      "url": "https://unstats.un.org/sdgs/UNSDGAPIV5/swagger/index.html",
-      "lang": ["en"],
-      "region": "global",
-      "domains": ["sdg", "demographics", "development"],
-      "license": "varies",
-      "historical": true,
-      "auth": "none",
-      "verification": "documented_endpoint"
     },
     {
       "id": "INT_UNE",
@@ -104,9 +127,17 @@
       "type": "REST",
       "acc": 1,
       "url": "https://api.uis.unesco.org/sdmx/data/",
-      "lang": ["en", "fr"],
+      "lang": [
+        "en",
+        "fr"
+      ],
       "region": "global",
-      "domains": ["education", "culture", "science", "demographics"],
+      "domains": [
+        "education",
+        "culture",
+        "science",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -118,9 +149,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://ghoapi.azureedge.net/api/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["health", "demographics"],
+      "domains": [
+        "health",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -132,9 +168,21 @@
       "type": "REST",
       "acc": 1,
       "url": "https://faostatservices.fao.org/api/v1/en/",
-      "lang": ["en", "fr", "es", "ar", "zh", "ru"],
+      "lang": [
+        "en",
+        "fr",
+        "es",
+        "ar",
+        "zh",
+        "ru"
+      ],
       "region": "global",
-      "domains": ["agriculture", "food", "economics", "environment"],
+      "domains": [
+        "agriculture",
+        "food",
+        "economics",
+        "environment"
+      ],
       "license": "CC-BY-4.0",
       "historical": true,
       "auth": "none",
@@ -146,9 +194,17 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.ilo.org/sdmx/rest/data/",
-      "lang": ["en", "fr", "es"],
+      "lang": [
+        "en",
+        "fr",
+        "es"
+      ],
       "region": "global",
-      "domains": ["labor", "economics", "demographics"],
+      "domains": [
+        "labor",
+        "economics",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -160,9 +216,16 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://data.humdata.org/api/3/action/package_search",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["humanitarian", "demographics", "health", "conflict"],
+      "domains": [
+        "humanitarian",
+        "demographics",
+        "health",
+        "conflict"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -174,27 +237,20 @@
       "type": "REST",
       "acc": 1,
       "url": "https://data.ipu.org/api/",
-      "lang": ["en", "fr"],
+      "lang": [
+        "en",
+        "fr"
+      ],
       "region": "global",
-      "domains": ["governance", "elections", "gender"],
+      "domains": [
+        "governance",
+        "elections",
+        "gender"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
-    },
-    {
-      "id": "INT_VDM",
-      "name": "V-Dem (Varieties of Democracy)",
-      "type": "REST",
-      "acc": 2,
-      "url": "https://www.v-dem.net/data/the-v-dem-dataset/",
-      "lang": ["en"],
-      "region": "global",
-      "domains": ["governance", "democracy", "political_science"],
-      "license": "CC-BY-4.0",
-      "historical": true,
-      "auth": "none",
-      "verification": "documented_endpoint"
     },
     {
       "id": "INT_WID",
@@ -202,24 +258,42 @@
       "type": "REST",
       "acc": 2,
       "url": "https://wid.world/api/",
-      "lang": ["en", "fr", "es"],
+      "lang": [
+        "en",
+        "fr",
+        "es"
+      ],
       "region": "global",
-      "domains": ["economics", "inequality", "wealth"],
+      "domains": [
+        "economics",
+        "inequality",
+        "wealth"
+      ],
       "license": "CC-BY-4.0",
       "historical": true,
       "auth": "none",
       "verification": "documented_endpoint"
     },
-
     {
       "id": "EU_EUS",
       "name": "Eurostat",
       "type": "SDMX",
       "acc": 1,
       "url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/",
-      "lang": ["en", "fr", "de"],
+      "lang": [
+        "en",
+        "fr",
+        "de"
+      ],
       "region": "europe",
-      "domains": ["economics", "demographics", "labor", "environment", "health", "education"],
+      "domains": [
+        "economics",
+        "demographics",
+        "labor",
+        "environment",
+        "health",
+        "education"
+      ],
       "license": "EUPL-1.2",
       "historical": true,
       "auth": "none",
@@ -231,9 +305,22 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://data.europa.eu/api/hub/search/datasets",
-      "lang": ["en", "de", "fr", "es", "it", "pl"],
+      "lang": [
+        "en",
+        "de",
+        "fr",
+        "es",
+        "it",
+        "pl"
+      ],
       "region": "europe",
-      "domains": ["governance", "economics", "environment", "spending", "research"],
+      "domains": [
+        "governance",
+        "economics",
+        "environment",
+        "spending",
+        "research"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -245,9 +332,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://cordis.europa.eu/api/search/v1/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "europe",
-      "domains": ["research", "innovation", "spending"],
+      "domains": [
+        "research",
+        "innovation",
+        "spending"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -259,9 +352,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://open-research-europe.ec.europa.eu/api/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "europe",
-      "domains": ["research", "publications"],
+      "domains": [
+        "research",
+        "publications"
+      ],
       "license": "CC-BY-4.0",
       "historical": false,
       "auth": "none",
@@ -273,9 +371,19 @@
       "type": "REST",
       "acc": 1,
       "url": "https://ted.europa.eu/api/v3.0/notices/search",
-      "lang": ["en", "fr", "de", "it", "es"],
+      "lang": [
+        "en",
+        "fr",
+        "de",
+        "it",
+        "es"
+      ],
       "region": "europe",
-      "domains": ["procurement", "spending", "governance"],
+      "domains": [
+        "procurement",
+        "spending",
+        "governance"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -287,9 +395,14 @@
       "type": "DOC_INDEX",
       "acc": 2,
       "url": "https://edmo.eu/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "europe",
-      "domains": ["media", "disinformation"],
+      "domains": [
+        "media",
+        "disinformation"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -301,9 +414,14 @@
       "type": "DOC_INDEX",
       "acc": 2,
       "url": "https://cmpf.eui.eu/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "europe",
-      "domains": ["media", "pluralism"],
+      "domains": [
+        "media",
+        "pluralism"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -315,9 +433,15 @@
       "type": "REST",
       "acc": 2,
       "url": "https://ess-search.nsd.no/api/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "europe",
-      "domains": ["sociology", "public_opinion", "demographics"],
+      "domains": [
+        "sociology",
+        "public_opinion",
+        "demographics"
+      ],
       "license": "CC-BY-NC-SA-4.0",
       "historical": true,
       "auth": "free_key",
@@ -329,9 +453,14 @@
       "type": "REST",
       "acc": 2,
       "url": "https://datacatalogue.cessda.eu/api/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "europe",
-      "domains": ["sociology", "social_sciences"],
+      "domains": [
+        "sociology",
+        "social_sciences"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -343,9 +472,15 @@
       "type": "SDMX",
       "acc": 1,
       "url": "https://data-api.ecb.europa.eu/service/data/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "europe",
-      "domains": ["economics", "finance", "monetary"],
+      "domains": [
+        "economics",
+        "finance",
+        "monetary"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -357,9 +492,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.eea.europa.eu/api/SITE/data",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "europe",
-      "domains": ["environment", "climate"],
+      "domains": [
+        "environment",
+        "climate"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -371,23 +511,21 @@
       "type": "REST",
       "acc": 1,
       "url": "https://api.europeana.eu/record/v2/search.json",
-      "lang": ["en", "fr", "de", "it", "es", "nl"],
+      "lang": [
+        "en",
+        "fr",
+        "de",
+        "it",
+        "es",
+        "nl"
+      ],
       "region": "europe",
-      "domains": ["culture", "literature", "heritage", "history"],
-      "license": "varies",
-      "historical": true,
-      "auth": "free_key",
-      "verification": "documented_endpoint"
-    },
-    {
-      "id": "EU_EUR",
-      "name": "EUR-Lex (EU Law)",
-      "type": "REST",
-      "acc": 1,
-      "url": "https://eur-lex.europa.eu/EURLexWebService",
-      "lang": ["en", "fr", "de", "it", "es", "pl"],
-      "region": "europe",
-      "domains": ["law", "governance", "regulation"],
+      "domains": [
+        "culture",
+        "literature",
+        "heritage",
+        "history"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -399,24 +537,39 @@
       "type": "REST",
       "acc": 2,
       "url": "https://search.gesis.org/searchengine",
-      "lang": ["en", "de"],
+      "lang": [
+        "en",
+        "de"
+      ],
       "region": "europe",
-      "domains": ["sociology", "social_sciences", "surveys"],
+      "domains": [
+        "sociology",
+        "social_sciences",
+        "surveys"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "documented_endpoint"
     },
-
     {
       "id": "ITA_GOV",
       "name": "dati.gov.it",
       "type": "CKAN",
       "acc": 1,
       "url": "https://www.dati.gov.it/opendata/api/3/action/package_search",
-      "lang": ["it", "en"],
+      "lang": [
+        "it",
+        "en"
+      ],
       "region": "italy",
-      "domains": ["governance", "spending", "demographics", "environment", "transport"],
+      "domains": [
+        "governance",
+        "spending",
+        "demographics",
+        "environment",
+        "transport"
+      ],
       "license": "IODL-2.0",
       "historical": true,
       "auth": "none",
@@ -428,9 +581,18 @@
       "type": "SDMX",
       "acc": 1,
       "url": "https://sdmx.istat.it/SDMXWS/rest/data/",
-      "lang": ["it", "en"],
+      "lang": [
+        "it",
+        "en"
+      ],
       "region": "italy",
-      "domains": ["demographics", "economics", "labor", "education", "health"],
+      "domains": [
+        "demographics",
+        "economics",
+        "labor",
+        "education",
+        "health"
+      ],
       "license": "CC-BY-3.0-IT",
       "historical": true,
       "auth": "none",
@@ -442,9 +604,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://demo.istat.it/",
-      "lang": ["it", "en"],
+      "lang": [
+        "it",
+        "en"
+      ],
       "region": "italy",
-      "domains": ["demographics", "population"],
+      "domains": [
+        "demographics",
+        "population"
+      ],
       "license": "CC-BY-3.0-IT",
       "historical": true,
       "auth": "none",
@@ -456,27 +624,20 @@
       "type": "REST",
       "acc": 1,
       "url": "https://opencoesione.gov.it/it/opendata/",
-      "lang": ["it", "en"],
+      "lang": [
+        "it",
+        "en"
+      ],
       "region": "italy",
-      "domains": ["spending", "development", "regional"],
+      "domains": [
+        "spending",
+        "development",
+        "regional"
+      ],
       "license": "CC-BY-4.0",
       "historical": true,
       "auth": "none",
       "verification": "documented_endpoint"
-    },
-    {
-      "id": "ITA_SOL",
-      "name": "Soldi Pubblici (Public Spending)",
-      "type": "REST",
-      "acc": 1,
-      "url": "https://soldipubblici.gov.it/it/ricerca",
-      "lang": ["it"],
-      "region": "italy",
-      "domains": ["spending", "fiscal", "governance"],
-      "license": "IODL-2.0",
-      "historical": true,
-      "auth": "none",
-      "verification": "confirmed_existence_only"
     },
     {
       "id": "ITA_ANA",
@@ -484,9 +645,15 @@
       "type": "SPARQL",
       "acc": 1,
       "url": "https://dati.anticorruzione.it/sparql",
-      "lang": ["it"],
+      "lang": [
+        "it"
+      ],
       "region": "italy",
-      "domains": ["procurement", "anticorruption", "spending"],
+      "domains": [
+        "procurement",
+        "anticorruption",
+        "spending"
+      ],
       "license": "IODL-2.0",
       "historical": true,
       "auth": "none",
@@ -498,9 +665,14 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://indicepa.gov.it/ipa-dati/api/3/action/package_search",
-      "lang": ["it"],
+      "lang": [
+        "it"
+      ],
       "region": "italy",
-      "domains": ["governance", "public_administration"],
+      "domains": [
+        "governance",
+        "public_administration"
+      ],
       "license": "IODL-2.0",
       "historical": false,
       "auth": "none",
@@ -512,9 +684,14 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.normattiva.it/ricerca/",
-      "lang": ["it"],
+      "lang": [
+        "it"
+      ],
       "region": "italy",
-      "domains": ["law", "governance"],
+      "domains": [
+        "law",
+        "governance"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -526,9 +703,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://servizi2.inps.it/odapi/",
-      "lang": ["it"],
+      "lang": [
+        "it"
+      ],
       "region": "italy",
-      "domains": ["labor", "social_security", "spending"],
+      "domains": [
+        "labor",
+        "social_security",
+        "spending"
+      ],
       "license": "CC-BY-4.0",
       "historical": true,
       "auth": "none",
@@ -540,38 +723,16 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.agcom.it/",
-      "lang": ["it"],
+      "lang": [
+        "it"
+      ],
       "region": "italy",
-      "domains": ["media", "telecommunications", "broadband"],
+      "domains": [
+        "media",
+        "telecommunications",
+        "broadband"
+      ],
       "license": "varies",
-      "historical": true,
-      "auth": "none",
-      "verification": "confirmed_existence_only"
-    },
-    {
-      "id": "ITA_BAN",
-      "name": "Banca d'Italia (Bank of Italy)",
-      "type": "REST",
-      "acc": 1,
-      "url": "https://infostat.bancaditalia.it/inquiry/",
-      "lang": ["it", "en"],
-      "region": "italy",
-      "domains": ["economics", "finance", "monetary"],
-      "license": "varies",
-      "historical": true,
-      "auth": "none",
-      "verification": "confirmed_existence_only"
-    },
-    {
-      "id": "ITA_CAN",
-      "name": "OpenCantieri (Public Works)",
-      "type": "REST",
-      "acc": 1,
-      "url": "https://opencantieri.mit.gov.it/",
-      "lang": ["it"],
-      "region": "italy",
-      "domains": ["infrastructure", "spending"],
-      "license": "IODL-2.0",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
@@ -582,24 +743,36 @@
       "type": "OAI-PMH",
       "acc": 1,
       "url": "https://opac.bncf.firenze.sbn.it/oai-pmh/",
-      "lang": ["it"],
+      "lang": [
+        "it"
+      ],
       "region": "italy",
-      "domains": ["literature", "culture", "library"],
+      "domains": [
+        "literature",
+        "culture",
+        "library"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "ITA_REG_LOM",
       "name": "Regione Lombardia Open Data",
       "type": "Socrata",
       "acc": 1,
       "url": "https://www.dati.lombardia.it/resource/",
-      "lang": ["it"],
+      "lang": [
+        "it"
+      ],
       "region": "italy_lombardia",
-      "domains": ["regional", "transport", "health", "environment"],
+      "domains": [
+        "regional",
+        "transport",
+        "health",
+        "environment"
+      ],
       "license": "IODL-2.0",
       "historical": true,
       "auth": "none",
@@ -611,9 +784,15 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://dati.toscana.it/api/3/action/package_search",
-      "lang": ["it"],
+      "lang": [
+        "it"
+      ],
       "region": "italy_toscana",
-      "domains": ["regional", "demographics", "environment"],
+      "domains": [
+        "regional",
+        "demographics",
+        "environment"
+      ],
       "license": "IODL-2.0",
       "historical": true,
       "auth": "none",
@@ -625,9 +804,15 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://dati.lazio.it/catalog/api/3/action/package_search",
-      "lang": ["it"],
+      "lang": [
+        "it"
+      ],
       "region": "italy_lazio",
-      "domains": ["regional", "health", "spending"],
+      "domains": [
+        "regional",
+        "health",
+        "spending"
+      ],
       "license": "IODL-2.0",
       "historical": true,
       "auth": "none",
@@ -639,9 +824,15 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://www.dati.piemonte.it/api/3/action/package_search",
-      "lang": ["it"],
+      "lang": [
+        "it"
+      ],
       "region": "italy_piemonte",
-      "domains": ["regional", "environment", "agriculture"],
+      "domains": [
+        "regional",
+        "environment",
+        "agriculture"
+      ],
       "license": "IODL-2.0",
       "historical": true,
       "auth": "none",
@@ -653,9 +844,15 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://dati.emilia-romagna.it/api/3/action/package_search",
-      "lang": ["it"],
+      "lang": [
+        "it"
+      ],
       "region": "italy_emilia-romagna",
-      "domains": ["regional", "health", "agriculture"],
+      "domains": [
+        "regional",
+        "health",
+        "agriculture"
+      ],
       "license": "IODL-2.0",
       "historical": true,
       "auth": "none",
@@ -667,9 +864,15 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://dati.veneto.it/api/3/action/package_search",
-      "lang": ["it"],
+      "lang": [
+        "it"
+      ],
       "region": "italy_veneto",
-      "domains": ["regional", "tourism", "transport"],
+      "domains": [
+        "regional",
+        "tourism",
+        "transport"
+      ],
       "license": "IODL-2.0",
       "historical": true,
       "auth": "none",
@@ -681,9 +884,15 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://www.dati.puglia.it/api/3/action/package_search",
-      "lang": ["it"],
+      "lang": [
+        "it"
+      ],
       "region": "italy_puglia",
-      "domains": ["regional", "agriculture", "tourism"],
+      "domains": [
+        "regional",
+        "agriculture",
+        "tourism"
+      ],
       "license": "IODL-2.0",
       "historical": true,
       "auth": "none",
@@ -695,9 +904,15 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://dati.regione.sicilia.it/api/3/action/package_search",
-      "lang": ["it"],
+      "lang": [
+        "it"
+      ],
       "region": "italy_sicilia",
-      "domains": ["regional", "tourism", "agriculture"],
+      "domains": [
+        "regional",
+        "tourism",
+        "agriculture"
+      ],
       "license": "IODL-2.0",
       "historical": true,
       "auth": "none",
@@ -709,9 +924,16 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://opendata.regione.sardegna.it/api/3/action/package_search",
-      "lang": ["it"],
+      "lang": [
+        "it"
+      ],
       "region": "italy_sardegna",
-      "domains": ["regional", "tourism", "environment", "agriculture"],
+      "domains": [
+        "regional",
+        "tourism",
+        "environment",
+        "agriculture"
+      ],
       "license": "IODL-2.0",
       "historical": true,
       "auth": "none",
@@ -723,9 +945,13 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://www.dati.friuliveneziagiulia.it/api/3/action/package_search",
-      "lang": ["it"],
+      "lang": [
+        "it"
+      ],
       "region": "italy_fvg",
-      "domains": ["regional"],
+      "domains": [
+        "regional"
+      ],
       "license": "IODL-2.0",
       "historical": true,
       "auth": "none",
@@ -737,9 +963,15 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://dati.comune.cagliari.it/api/3/action/package_search",
-      "lang": ["it"],
+      "lang": [
+        "it"
+      ],
       "region": "italy_cagliari",
-      "domains": ["municipal", "transport", "tourism"],
+      "domains": [
+        "municipal",
+        "transport",
+        "tourism"
+      ],
       "license": "IODL-2.0",
       "historical": true,
       "auth": "none",
@@ -751,24 +983,37 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.sardegnaambiente.it/arpas/",
-      "lang": ["it"],
+      "lang": [
+        "it"
+      ],
       "region": "italy_sardegna",
-      "domains": ["environment", "weather", "regional"],
+      "domains": [
+        "environment",
+        "weather",
+        "regional"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "FR_GOV",
       "name": "data.gouv.fr",
       "type": "REST",
       "acc": 1,
       "url": "https://www.data.gouv.fr/api/2/datasets/search/",
-      "lang": ["fr", "en"],
+      "lang": [
+        "fr",
+        "en"
+      ],
       "region": "france",
-      "domains": ["governance", "spending", "demographics", "environment"],
+      "domains": [
+        "governance",
+        "spending",
+        "demographics",
+        "environment"
+      ],
       "license": "OL-OLF-2.0",
       "historical": true,
       "auth": "none",
@@ -780,9 +1025,16 @@
       "type": "REST",
       "acc": 1,
       "url": "https://api.insee.fr/series/BDM/V1/data/",
-      "lang": ["fr", "en"],
+      "lang": [
+        "fr",
+        "en"
+      ],
       "region": "france",
-      "domains": ["demographics", "economics", "labor"],
+      "domains": [
+        "demographics",
+        "economics",
+        "labor"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -794,9 +1046,16 @@
       "type": "REST",
       "acc": 1,
       "url": "https://gallica.bnf.fr/SRU",
-      "lang": ["fr"],
+      "lang": [
+        "fr"
+      ],
       "region": "france",
-      "domains": ["literature", "culture", "library", "history"],
+      "domains": [
+        "literature",
+        "culture",
+        "library",
+        "history"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -808,9 +1067,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://api.piste.gouv.fr/dila/legifrance/",
-      "lang": ["fr"],
+      "lang": [
+        "fr"
+      ],
       "region": "france",
-      "domains": ["law", "governance"],
+      "domains": [
+        "law",
+        "governance"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -822,9 +1086,16 @@
       "type": "REST",
       "acc": 2,
       "url": "https://api.archives-ouvertes.fr/search/",
-      "lang": ["fr", "en"],
+      "lang": [
+        "fr",
+        "en"
+      ],
       "region": "france",
-      "domains": ["research", "publications", "social_sciences"],
+      "domains": [
+        "research",
+        "publications",
+        "social_sciences"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -836,24 +1107,36 @@
       "type": "OAI-PMH",
       "acc": 2,
       "url": "https://oai.persee.fr/oai",
-      "lang": ["fr"],
+      "lang": [
+        "fr"
+      ],
       "region": "france",
-      "domains": ["social_sciences", "publications", "literature"],
+      "domains": [
+        "social_sciences",
+        "publications",
+        "literature"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "DE_GOV",
       "name": "GovData.de",
       "type": "CKAN",
       "acc": 1,
       "url": "https://www.govdata.de/ckan/api/3/action/package_search",
-      "lang": ["de", "en"],
+      "lang": [
+        "de",
+        "en"
+      ],
       "region": "germany",
-      "domains": ["governance", "demographics", "environment"],
+      "domains": [
+        "governance",
+        "demographics",
+        "environment"
+      ],
       "license": "DL-DE-BY-2.0",
       "historical": true,
       "auth": "none",
@@ -865,9 +1148,16 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www-genesis.destatis.de/genesisWS/rest/2020/data/",
-      "lang": ["de", "en"],
+      "lang": [
+        "de",
+        "en"
+      ],
       "region": "germany",
-      "domains": ["demographics", "economics", "labor"],
+      "domains": [
+        "demographics",
+        "economics",
+        "labor"
+      ],
       "license": "DL-DE-BY-2.0",
       "historical": true,
       "auth": "free_key",
@@ -879,9 +1169,16 @@
       "type": "REST",
       "acc": 1,
       "url": "https://api.statistiken.bundesbank.de/rest/data/",
-      "lang": ["de", "en"],
+      "lang": [
+        "de",
+        "en"
+      ],
       "region": "germany",
-      "domains": ["finance", "monetary", "economics"],
+      "domains": [
+        "finance",
+        "monetary",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -893,9 +1190,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://services.dnb.de/sru/dnb",
-      "lang": ["de"],
+      "lang": [
+        "de"
+      ],
       "region": "germany",
-      "domains": ["literature", "library", "culture"],
+      "domains": [
+        "literature",
+        "library",
+        "culture"
+      ],
       "license": "CC0-1.0",
       "historical": true,
       "auth": "none",
@@ -907,24 +1210,35 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.gesetze-im-internet.de/",
-      "lang": ["de"],
+      "lang": [
+        "de"
+      ],
       "region": "germany",
-      "domains": ["law", "governance"],
+      "domains": [
+        "law",
+        "governance"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "ES_GOV",
       "name": "datos.gob.es",
       "type": "REST",
       "acc": 1,
       "url": "https://datos.gob.es/apidata",
-      "lang": ["es", "en"],
+      "lang": [
+        "es",
+        "en"
+      ],
       "region": "spain",
-      "domains": ["governance", "demographics", "spending"],
+      "domains": [
+        "governance",
+        "demographics",
+        "spending"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -936,9 +1250,16 @@
       "type": "REST",
       "acc": 1,
       "url": "https://servicios.ine.es/wstempus/js/EN/",
-      "lang": ["es", "en"],
+      "lang": [
+        "es",
+        "en"
+      ],
       "region": "spain",
-      "domains": ["demographics", "economics", "labor"],
+      "domains": [
+        "demographics",
+        "economics",
+        "labor"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -950,9 +1271,14 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.boe.es/datosabiertos/",
-      "lang": ["es"],
+      "lang": [
+        "es"
+      ],
       "region": "spain",
-      "domains": ["law", "governance"],
+      "domains": [
+        "law",
+        "governance"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -964,24 +1290,36 @@
       "type": "OAI-PMH",
       "acc": 1,
       "url": "https://www.bne.es/oai",
-      "lang": ["es"],
+      "lang": [
+        "es"
+      ],
       "region": "spain",
-      "domains": ["literature", "library", "culture"],
+      "domains": [
+        "literature",
+        "library",
+        "culture"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "NL_GOV",
       "name": "data.overheid.nl",
       "type": "CKAN",
       "acc": 1,
       "url": "https://data.overheid.nl/data/api/3/action/package_search",
-      "lang": ["nl", "en"],
+      "lang": [
+        "nl",
+        "en"
+      ],
       "region": "netherlands",
-      "domains": ["governance", "demographics", "environment"],
+      "domains": [
+        "governance",
+        "demographics",
+        "environment"
+      ],
       "license": "CC0-1.0",
       "historical": true,
       "auth": "none",
@@ -993,9 +1331,16 @@
       "type": "REST",
       "acc": 1,
       "url": "https://opendata.cbs.nl/ODataApi/odata/",
-      "lang": ["nl", "en"],
+      "lang": [
+        "nl",
+        "en"
+      ],
       "region": "netherlands",
-      "domains": ["demographics", "economics", "labor"],
+      "domains": [
+        "demographics",
+        "economics",
+        "labor"
+      ],
       "license": "CC-BY-4.0",
       "historical": true,
       "auth": "none",
@@ -1007,9 +1352,14 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.dbnl.org/",
-      "lang": ["nl"],
+      "lang": [
+        "nl"
+      ],
       "region": "netherlands",
-      "domains": ["literature", "culture"],
+      "domains": [
+        "literature",
+        "culture"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -1021,111 +1371,98 @@
       "type": "OAI-PMH",
       "acc": 1,
       "url": "https://services.kb.nl/mdo/oai",
-      "lang": ["nl"],
+      "lang": [
+        "nl"
+      ],
       "region": "netherlands",
-      "domains": ["literature", "library"],
+      "domains": [
+        "literature",
+        "library"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "documented_endpoint"
     },
-
     {
       "id": "BE_GOV",
       "name": "data.gov.be",
       "type": "DKAN",
       "acc": 1,
       "url": "https://data.gov.be/en",
-      "lang": ["nl", "fr", "en"],
+      "lang": [
+        "nl",
+        "fr",
+        "en"
+      ],
       "region": "belgium",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
     },
-    {
-      "id": "BE_STA",
-      "name": "Statbel (Belgian Statistics)",
-      "type": "REST",
-      "acc": 1,
-      "url": "https://statbel.fgov.be/en/open-data",
-      "lang": ["nl", "fr", "en"],
-      "region": "belgium",
-      "domains": ["demographics", "economics"],
-      "license": "varies",
-      "historical": true,
-      "auth": "none",
-      "verification": "confirmed_existence_only"
-    },
-
     {
       "id": "AT_GOV",
       "name": "data.gv.at",
       "type": "CKAN",
       "acc": 1,
       "url": "https://www.data.gv.at/katalog/api/3/action/package_search",
-      "lang": ["de", "en"],
+      "lang": [
+        "de",
+        "en"
+      ],
       "region": "austria",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "CC-BY-4.0",
       "historical": true,
       "auth": "none",
       "verification": "documented_endpoint"
     },
-    {
-      "id": "AT_STA",
-      "name": "Statistik Austria",
-      "type": "REST",
-      "acc": 1,
-      "url": "https://www.statistik.at/en/services/open-data/",
-      "lang": ["de", "en"],
-      "region": "austria",
-      "domains": ["demographics", "economics"],
-      "license": "CC-BY-4.0",
-      "historical": true,
-      "auth": "none",
-      "verification": "confirmed_existence_only"
-    },
-
     {
       "id": "CH_GOV",
       "name": "opendata.swiss",
       "type": "CKAN",
       "acc": 1,
       "url": "https://opendata.swiss/api/3/action/package_search",
-      "lang": ["de", "fr", "it", "en"],
+      "lang": [
+        "de",
+        "fr",
+        "it",
+        "en"
+      ],
       "region": "switzerland",
-      "domains": ["governance", "demographics", "environment"],
+      "domains": [
+        "governance",
+        "demographics",
+        "environment"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "documented_endpoint"
     },
     {
-      "id": "CH_BFS",
-      "name": "BFS (Swiss Federal Statistics)",
-      "type": "REST",
-      "acc": 1,
-      "url": "https://www.bfs.admin.ch/bfs/en/home/services/open-government-data.html",
-      "lang": ["de", "fr", "it", "en"],
-      "region": "switzerland",
-      "domains": ["demographics", "economics"],
-      "license": "varies",
-      "historical": true,
-      "auth": "none",
-      "verification": "confirmed_existence_only"
-    },
-
-    {
       "id": "PT_GOV",
       "name": "dados.gov.pt",
       "type": "CKAN",
       "acc": 1,
       "url": "https://dados.gov.pt/api/3/action/package_search",
-      "lang": ["pt", "en"],
+      "lang": [
+        "pt",
+        "en"
+      ],
       "region": "portugal",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -1137,53 +1474,55 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.ine.pt/ine/json_indicador/pindicaAPI.jsp",
-      "lang": ["pt", "en"],
+      "lang": [
+        "pt",
+        "en"
+      ],
       "region": "portugal",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "GR_GOV",
       "name": "data.gov.gr",
       "type": "REST",
       "acc": 1,
       "url": "https://data.gov.gr/api/v1/",
-      "lang": ["el", "en"],
+      "lang": [
+        "el",
+        "en"
+      ],
       "region": "greece",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "CC-BY-4.0",
       "historical": true,
       "auth": "free_key",
       "verification": "documented_endpoint"
     },
     {
-      "id": "GR_ELS",
-      "name": "ELSTAT (Hellenic Statistical Authority)",
-      "type": "REST",
-      "acc": 1,
-      "url": "https://www.statistics.gr/en/home/",
-      "lang": ["el", "en"],
-      "region": "greece",
-      "domains": ["demographics", "economics"],
-      "license": "varies",
-      "historical": true,
-      "auth": "none",
-      "verification": "confirmed_existence_only"
-    },
-
-    {
       "id": "PL_GOV",
       "name": "dane.gov.pl",
       "type": "REST",
       "acc": 1,
       "url": "https://api.dane.gov.pl/1.4/",
-      "lang": ["pl", "en"],
+      "lang": [
+        "pl",
+        "en"
+      ],
       "region": "poland",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -1195,24 +1534,35 @@
       "type": "REST",
       "acc": 1,
       "url": "https://api-dbw.stat.gov.pl/api/1.1.0/",
-      "lang": ["pl", "en"],
+      "lang": [
+        "pl",
+        "en"
+      ],
       "region": "poland",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "documented_endpoint"
     },
-
     {
       "id": "SE_GOV",
       "name": "Sweden Open Data Portal",
       "type": "DCAT",
       "acc": 1,
       "url": "https://www.dataportal.se/api/",
-      "lang": ["sv", "en"],
+      "lang": [
+        "sv",
+        "en"
+      ],
       "region": "sweden",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -1224,24 +1574,35 @@
       "type": "REST",
       "acc": 1,
       "url": "https://api.scb.se/OV0104/v1/doris/en/ssd/",
-      "lang": ["sv", "en"],
+      "lang": [
+        "sv",
+        "en"
+      ],
       "region": "sweden",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "CC0-1.0",
       "historical": true,
       "auth": "none",
       "verification": "documented_endpoint"
     },
-
     {
       "id": "NO_GOV",
       "name": "data.norge.no",
       "type": "DCAT",
       "acc": 1,
       "url": "https://data.norge.no/datasets",
-      "lang": ["no", "en"],
+      "lang": [
+        "no",
+        "en"
+      ],
       "region": "norway",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "NLOD-2.0",
       "historical": true,
       "auth": "none",
@@ -1253,24 +1614,34 @@
       "type": "REST",
       "acc": 1,
       "url": "https://data.ssb.no/api/v0/",
-      "lang": ["no", "en"],
+      "lang": [
+        "no",
+        "en"
+      ],
       "region": "norway",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "NLOD-2.0",
       "historical": true,
       "auth": "none",
       "verification": "documented_endpoint"
     },
-
     {
       "id": "DK_GOV",
       "name": "Datavejviser.dk",
       "type": "DCAT",
       "acc": 1,
       "url": "https://datavejviser.dk/",
-      "lang": ["da", "en"],
+      "lang": [
+        "da",
+        "en"
+      ],
       "region": "denmark",
-      "domains": ["governance"],
+      "domains": [
+        "governance"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -1282,24 +1653,36 @@
       "type": "REST",
       "acc": 1,
       "url": "https://api.statbank.dk/v1/",
-      "lang": ["da", "en"],
+      "lang": [
+        "da",
+        "en"
+      ],
       "region": "denmark",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "documented_endpoint"
     },
-
     {
       "id": "FI_GOV",
       "name": "Avoindata.fi",
       "type": "CKAN",
       "acc": 1,
       "url": "https://www.avoindata.fi/data/api/3/action/package_search",
-      "lang": ["fi", "sv", "en"],
+      "lang": [
+        "fi",
+        "sv",
+        "en"
+      ],
       "region": "finland",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "CC-BY-4.0",
       "historical": true,
       "auth": "none",
@@ -1311,24 +1694,36 @@
       "type": "REST",
       "acc": 1,
       "url": "https://pxdata.stat.fi/PXWeb/api/v1/en/",
-      "lang": ["fi", "sv", "en"],
+      "lang": [
+        "fi",
+        "sv",
+        "en"
+      ],
       "region": "finland",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "CC-BY-4.0",
       "historical": true,
       "auth": "none",
       "verification": "documented_endpoint"
     },
-
     {
       "id": "IE_GOV",
       "name": "data.gov.ie",
       "type": "CKAN",
       "acc": 1,
       "url": "https://data.gov.ie/api/3/action/package_search",
-      "lang": ["en", "ga"],
+      "lang": [
+        "en",
+        "ga"
+      ],
       "region": "ireland",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "CC-BY-4.0",
       "historical": true,
       "auth": "none",
@@ -1340,24 +1735,36 @@
       "type": "REST",
       "acc": 1,
       "url": "https://ws.cso.ie/public/api.restful/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "ireland",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "documented_endpoint"
     },
-
     {
       "id": "UK_GOV",
       "name": "data.gov.uk",
       "type": "CKAN",
       "acc": 1,
       "url": "https://data.gov.uk/api/3/action/package_search",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "uk",
-      "domains": ["governance", "spending", "demographics", "transport", "health"],
+      "domains": [
+        "governance",
+        "spending",
+        "demographics",
+        "transport",
+        "health"
+      ],
       "license": "OGL-3.0",
       "historical": true,
       "auth": "none",
@@ -1369,9 +1776,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://api.beta.ons.gov.uk/v1/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "uk",
-      "domains": ["demographics", "economics", "labor"],
+      "domains": [
+        "demographics",
+        "economics",
+        "labor"
+      ],
       "license": "OGL-3.0",
       "historical": true,
       "auth": "none",
@@ -1383,9 +1796,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://members-api.parliament.uk/api/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "uk",
-      "domains": ["governance", "law"],
+      "domains": [
+        "governance",
+        "law"
+      ],
       "license": "OGL-3.0",
       "historical": true,
       "auth": "none",
@@ -1397,9 +1815,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.legislation.gov.uk/data.feed",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "uk",
-      "domains": ["law", "governance"],
+      "domains": [
+        "law",
+        "governance"
+      ],
       "license": "OGL-3.0",
       "historical": true,
       "auth": "none",
@@ -1411,9 +1834,13 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://digital.nhs.uk/data-and-information/find-data-and-publications",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "uk",
-      "domains": ["health"],
+      "domains": [
+        "health"
+      ],
       "license": "OGL-3.0",
       "historical": true,
       "auth": "none",
@@ -1425,9 +1852,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.bankofengland.co.uk/boeapps/database/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "uk",
-      "domains": ["finance", "monetary", "economics"],
+      "domains": [
+        "finance",
+        "monetary",
+        "economics"
+      ],
       "license": "OGL-3.0",
       "historical": true,
       "auth": "none",
@@ -1439,9 +1872,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://bll01.primo.exlibrisgroup.com/discovery/search",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "uk",
-      "domains": ["literature", "library", "culture"],
+      "domains": [
+        "literature",
+        "library",
+        "culture"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -1453,9 +1892,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.nrscotland.gov.uk/statistics-and-data/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "uk_scotland",
-      "domains": ["demographics", "regional"],
+      "domains": [
+        "demographics",
+        "regional"
+      ],
       "license": "OGL-3.0",
       "historical": true,
       "auth": "none",
@@ -1467,24 +1911,37 @@
       "type": "REST",
       "acc": 2,
       "url": "https://discover.ukdataservice.ac.uk/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "uk",
-      "domains": ["social_sciences", "sociology", "surveys"],
+      "domains": [
+        "social_sciences",
+        "sociology",
+        "surveys"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "US_GOV",
       "name": "data.gov",
       "type": "CKAN",
       "acc": 1,
       "url": "https://catalog.data.gov/api/3/action/package_search",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["governance", "spending", "demographics", "environment", "health"],
+      "domains": [
+        "governance",
+        "spending",
+        "demographics",
+        "environment",
+        "health"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -1496,9 +1953,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://api.census.gov/data/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["demographics", "economics", "housing"],
+      "domains": [
+        "demographics",
+        "economics",
+        "housing"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -1510,9 +1973,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["labor", "economics"],
+      "domains": [
+        "labor",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -1524,9 +1992,13 @@
       "type": "REST",
       "acc": 1,
       "url": "https://apps.bea.gov/api/data/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["economics"],
+      "domains": [
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -1538,9 +2010,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://api.stlouisfed.org/fred/series/observations",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["economics", "finance", "monetary"],
+      "domains": [
+        "economics",
+        "finance",
+        "monetary"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -1552,9 +2030,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://api.usaspending.gov/api/v2/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["spending", "fiscal", "governance"],
+      "domains": [
+        "spending",
+        "fiscal",
+        "governance"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -1566,9 +2050,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://api.congress.gov/v3/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["governance", "law"],
+      "domains": [
+        "governance",
+        "law"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -1580,9 +2069,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://api.regulations.gov/v4/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["regulation", "governance"],
+      "domains": [
+        "regulation",
+        "governance"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -1594,9 +2088,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://api.open.fec.gov/v1/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["elections", "governance"],
+      "domains": [
+        "elections",
+        "governance"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -1608,9 +2107,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["health", "research", "publications"],
+      "domains": [
+        "health",
+        "research",
+        "publications"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -1622,9 +2127,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://api.ies.ed.gov/eric/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["education", "research"],
+      "domains": [
+        "education",
+        "research"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -1636,9 +2146,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://api.nsf.gov/services/v1/awards.json",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["research", "spending"],
+      "domains": [
+        "research",
+        "spending"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -1650,9 +2165,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.ssa.gov/data/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["social_security", "demographics"],
+      "domains": [
+        "social_security",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -1664,9 +2184,16 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.loc.gov/apis/json-and-yaml/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["literature", "library", "culture", "history"],
+      "domains": [
+        "literature",
+        "library",
+        "culture",
+        "history"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -1678,9 +2205,16 @@
       "type": "REST",
       "acc": 2,
       "url": "https://api.dp.la/v2/items",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["literature", "culture", "history", "library"],
+      "domains": [
+        "literature",
+        "culture",
+        "history",
+        "library"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -1692,9 +2226,15 @@
       "type": "REST",
       "acc": 2,
       "url": "https://catalog.hathitrust.org/api/volumes/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["literature", "library", "publications"],
+      "domains": [
+        "literature",
+        "library",
+        "publications"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -1706,9 +2246,14 @@
       "type": "REST",
       "acc": 2,
       "url": "https://gutendex.com/books/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["literature", "publications"],
+      "domains": [
+        "literature",
+        "publications"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -1720,9 +2265,16 @@
       "type": "REST",
       "acc": 2,
       "url": "https://archive.org/advancedsearch.php",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["literature", "culture", "history", "publications"],
+      "domains": [
+        "literature",
+        "culture",
+        "history",
+        "publications"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -1734,9 +2286,16 @@
       "type": "Socrata",
       "acc": 1,
       "url": "https://data.cityofnewyork.us/resource/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa_nyc",
-      "domains": ["municipal", "transport", "housing", "demographics"],
+      "domains": [
+        "municipal",
+        "transport",
+        "housing",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -1748,9 +2307,15 @@
       "type": "Socrata",
       "acc": 1,
       "url": "https://data.lacity.org/resource/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa_la",
-      "domains": ["municipal", "transport", "housing"],
+      "domains": [
+        "municipal",
+        "transport",
+        "housing"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -1762,24 +2327,34 @@
       "type": "Socrata",
       "acc": 1,
       "url": "https://data.cityofchicago.org/resource/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa_chicago",
-      "domains": ["municipal"],
+      "domains": [
+        "municipal"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "CA_GOV",
       "name": "Open Government Canada",
       "type": "CKAN",
       "acc": 1,
       "url": "https://open.canada.ca/data/api/3/action/package_search",
-      "lang": ["en", "fr"],
+      "lang": [
+        "en",
+        "fr"
+      ],
       "region": "canada",
-      "domains": ["governance", "demographics", "environment"],
+      "domains": [
+        "governance",
+        "demographics",
+        "environment"
+      ],
       "license": "OGL-Canada-2.0",
       "historical": true,
       "auth": "none",
@@ -1791,9 +2366,16 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www150.statcan.gc.ca/t1/wds/rest/",
-      "lang": ["en", "fr"],
+      "lang": [
+        "en",
+        "fr"
+      ],
       "region": "canada",
-      "domains": ["demographics", "economics", "labor"],
+      "domains": [
+        "demographics",
+        "economics",
+        "labor"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -1805,24 +2387,37 @@
       "type": "OAI-PMH",
       "acc": 1,
       "url": "https://www.bac-lac.gc.ca/eng/Pages/oai-pmh.aspx",
-      "lang": ["en", "fr"],
+      "lang": [
+        "en",
+        "fr"
+      ],
       "region": "canada",
-      "domains": ["literature", "library", "history"],
+      "domains": [
+        "literature",
+        "library",
+        "history"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "JP_EST",
       "name": "e-Stat (Japan Statistics)",
       "type": "REST",
       "acc": 1,
       "url": "https://api.e-stat.go.jp/rest/3.0/app/json/",
-      "lang": ["ja", "en"],
+      "lang": [
+        "ja",
+        "en"
+      ],
       "region": "japan",
-      "domains": ["demographics", "economics", "labor"],
+      "domains": [
+        "demographics",
+        "economics",
+        "labor"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -1834,9 +2429,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://dashboard.e-stat.go.jp/api/1.0/Json/",
-      "lang": ["ja", "en"],
+      "lang": [
+        "ja",
+        "en"
+      ],
       "region": "japan",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -1848,9 +2449,15 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://www.data.go.jp/data/api/3/action/package_search",
-      "lang": ["ja", "en"],
+      "lang": [
+        "ja",
+        "en"
+      ],
       "region": "japan",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "CC-BY-4.0",
       "historical": true,
       "auth": "none",
@@ -1862,9 +2469,16 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.stat-search.boj.or.jp/",
-      "lang": ["ja", "en"],
+      "lang": [
+        "ja",
+        "en"
+      ],
       "region": "japan",
-      "domains": ["finance", "monetary", "economics"],
+      "domains": [
+        "finance",
+        "monetary",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -1876,9 +2490,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://disclosure.edinet-fsa.go.jp/api/v2/",
-      "lang": ["ja", "en"],
+      "lang": [
+        "ja",
+        "en"
+      ],
       "region": "japan",
-      "domains": ["finance", "corporate"],
+      "domains": [
+        "finance",
+        "corporate"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -1890,9 +2510,16 @@
       "type": "REST",
       "acc": 1,
       "url": "https://iss.ndl.go.jp/api/opensearch",
-      "lang": ["ja", "en"],
+      "lang": [
+        "ja",
+        "en"
+      ],
       "region": "japan",
-      "domains": ["literature", "library", "culture"],
+      "domains": [
+        "literature",
+        "library",
+        "culture"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -1904,24 +2531,35 @@
       "type": "REST",
       "acc": 1,
       "url": "https://opendata.resas-portal.go.jp/",
-      "lang": ["ja"],
+      "lang": [
+        "ja"
+      ],
       "region": "japan",
-      "domains": ["regional", "economics", "demographics"],
+      "domains": [
+        "regional",
+        "economics",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
       "verification": "documented_endpoint"
     },
-
     {
       "id": "KR_GOV",
       "name": "data.go.kr (Public Data Portal)",
       "type": "REST",
       "acc": 1,
       "url": "https://www.data.go.kr/openapi/",
-      "lang": ["ko", "en"],
+      "lang": [
+        "ko",
+        "en"
+      ],
       "region": "south_korea",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "KOGL-1.0",
       "historical": true,
       "auth": "free_key",
@@ -1933,24 +2571,35 @@
       "type": "REST",
       "acc": 1,
       "url": "https://kosis.kr/openapi/",
-      "lang": ["ko", "en"],
+      "lang": [
+        "ko",
+        "en"
+      ],
       "region": "south_korea",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "KOGL-1.0",
       "historical": true,
       "auth": "free_key",
       "verification": "documented_endpoint"
     },
-
     {
       "id": "CN_NBS",
       "name": "NBS China (National Bureau of Statistics)",
       "type": "REST",
       "acc": 1,
       "url": "https://data.stats.gov.cn/easyquery.htm",
-      "lang": ["zh", "en"],
+      "lang": [
+        "zh",
+        "en"
+      ],
       "region": "china",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -1962,54 +2611,75 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.pbc.gov.cn/",
-      "lang": ["zh", "en"],
+      "lang": [
+        "zh",
+        "en"
+      ],
       "region": "china",
-      "domains": ["finance", "monetary"],
+      "domains": [
+        "finance",
+        "monetary"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "TW_GOV",
       "name": "data.gov.tw",
       "type": "CKAN",
       "acc": 1,
       "url": "https://data.gov.tw/api/v2/rest/dataset/",
-      "lang": ["zh", "en"],
+      "lang": [
+        "zh",
+        "en"
+      ],
       "region": "taiwan",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "documented_endpoint"
     },
-
     {
       "id": "HK_GOV",
       "name": "DATA.GOV.HK",
       "type": "CKAN",
       "acc": 1,
       "url": "https://data.gov.hk/en-data/api/",
-      "lang": ["zh", "en"],
+      "lang": [
+        "zh",
+        "en"
+      ],
       "region": "hong_kong",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "SG_GOV",
       "name": "data.gov.sg",
       "type": "REST",
       "acc": 1,
       "url": "https://api-production.data.gov.sg/v2/public/api/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "singapore",
-      "domains": ["governance", "demographics", "transport"],
+      "domains": [
+        "governance",
+        "demographics",
+        "transport"
+      ],
       "license": "OGL-SG",
       "historical": true,
       "auth": "none",
@@ -2021,24 +2691,35 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.singstat.gov.sg/-/media/files/standards_and_classifications/api/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "singapore",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "documented_endpoint"
     },
-
     {
       "id": "IN_GOV",
       "name": "data.gov.in",
       "type": "REST",
       "acc": 1,
       "url": "https://api.data.gov.in/resource/",
-      "lang": ["en", "hi"],
+      "lang": [
+        "en",
+        "hi"
+      ],
       "region": "india",
-      "domains": ["governance", "demographics", "agriculture"],
+      "domains": [
+        "governance",
+        "demographics",
+        "agriculture"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -2050,9 +2731,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://dbie.rbi.org.in/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "india",
-      "domains": ["finance", "monetary", "economics"],
+      "domains": [
+        "finance",
+        "monetary",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2064,24 +2751,35 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.mospi.gov.in/",
-      "lang": ["en", "hi"],
+      "lang": [
+        "en",
+        "hi"
+      ],
       "region": "india",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "ID_GOV",
       "name": "data.go.id (Indonesia)",
       "type": "CKAN",
       "acc": 1,
       "url": "https://data.go.id/api/3/action/package_search",
-      "lang": ["id", "en"],
+      "lang": [
+        "id",
+        "en"
+      ],
       "region": "indonesia",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2093,24 +2791,35 @@
       "type": "REST",
       "acc": 1,
       "url": "https://webapi.bps.go.id/",
-      "lang": ["id", "en"],
+      "lang": [
+        "id",
+        "en"
+      ],
       "region": "indonesia",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "TH_GOV",
       "name": "data.go.th (Thailand)",
       "type": "CKAN",
       "acc": 1,
       "url": "https://data.go.th/api/3/action/package_search",
-      "lang": ["th", "en"],
+      "lang": [
+        "th",
+        "en"
+      ],
       "region": "thailand",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2122,39 +2831,55 @@
       "type": "SDMX",
       "acc": 1,
       "url": "https://nsoapi.nso.go.th/",
-      "lang": ["th", "en"],
+      "lang": [
+        "th",
+        "en"
+      ],
       "region": "thailand",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "PH_GOV",
       "name": "data.gov.ph (Philippines)",
       "type": "CKAN",
       "acc": 1,
       "url": "https://data.gov.ph/api/3/action/package_search",
-      "lang": ["en", "tl"],
+      "lang": [
+        "en",
+        "tl"
+      ],
       "region": "philippines",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "AU_GOV",
       "name": "data.gov.au",
       "type": "CKAN",
       "acc": 1,
       "url": "https://data.gov.au/data/api/3/action/package_search",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "australia",
-      "domains": ["governance", "demographics", "environment"],
+      "domains": [
+        "governance",
+        "demographics",
+        "environment"
+      ],
       "license": "CC-BY-4.0",
       "historical": true,
       "auth": "none",
@@ -2166,9 +2891,14 @@
       "type": "SDMX",
       "acc": 1,
       "url": "https://api.data.abs.gov.au/data/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "australia",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "CC-BY-4.0",
       "historical": true,
       "auth": "none",
@@ -2180,9 +2910,15 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://catalogue.data.govt.nz/api/3/action/package_search",
-      "lang": ["en", "mi"],
+      "lang": [
+        "en",
+        "mi"
+      ],
       "region": "new_zealand",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "CC-BY-4.0",
       "historical": true,
       "auth": "none",
@@ -2194,24 +2930,35 @@
       "type": "REST",
       "acc": 1,
       "url": "https://api.stats.govt.nz/",
-      "lang": ["en", "mi"],
+      "lang": [
+        "en",
+        "mi"
+      ],
       "region": "new_zealand",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "CC-BY-4.0",
       "historical": true,
       "auth": "free_key",
       "verification": "documented_endpoint"
     },
-
     {
       "id": "ME_KSA",
       "name": "Saudi SDAIA Open Data",
       "type": "CKAN",
       "acc": 1,
       "url": "https://open.data.gov.sa/api/3/action/package_search",
-      "lang": ["ar", "en"],
+      "lang": [
+        "ar",
+        "en"
+      ],
       "region": "saudi_arabia",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2223,9 +2970,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.stats.gov.sa/en",
-      "lang": ["ar", "en"],
+      "lang": [
+        "ar",
+        "en"
+      ],
       "region": "saudi_arabia",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2237,9 +2990,16 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.dubaipulse.gov.ae/data/",
-      "lang": ["ar", "en"],
+      "lang": [
+        "ar",
+        "en"
+      ],
       "region": "uae_dubai",
-      "domains": ["municipal", "demographics", "transport"],
+      "domains": [
+        "municipal",
+        "demographics",
+        "transport"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -2251,9 +3011,15 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://bayanat.ae/api/3/action/package_search",
-      "lang": ["ar", "en"],
+      "lang": [
+        "ar",
+        "en"
+      ],
       "region": "uae",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2265,9 +3031,15 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://www.data.gov.qa/api/v2/",
-      "lang": ["ar", "en"],
+      "lang": [
+        "ar",
+        "en"
+      ],
       "region": "qatar",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2279,9 +3051,14 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://www.data.gov.bh/en/",
-      "lang": ["ar", "en"],
+      "lang": [
+        "ar",
+        "en"
+      ],
       "region": "bahrain",
-      "domains": ["governance"],
+      "domains": [
+        "governance"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2293,9 +3070,14 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://www.data.gov.om/",
-      "lang": ["ar", "en"],
+      "lang": [
+        "ar",
+        "en"
+      ],
       "region": "oman",
-      "domains": ["governance"],
+      "domains": [
+        "governance"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2307,9 +3089,14 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://portal.jordan.gov.jo/",
-      "lang": ["ar", "en"],
+      "lang": [
+        "ar",
+        "en"
+      ],
       "region": "jordan",
-      "domains": ["governance"],
+      "domains": [
+        "governance"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2321,9 +3108,16 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.cas.gov.lb/",
-      "lang": ["ar", "en", "fr"],
+      "lang": [
+        "ar",
+        "en",
+        "fr"
+      ],
       "region": "lebanon",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2335,9 +3129,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://data.tuik.gov.tr/",
-      "lang": ["tr", "en"],
+      "lang": [
+        "tr",
+        "en"
+      ],
       "region": "turkey",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2349,9 +3149,16 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://data.gov.il/api/3/action/package_search",
-      "lang": ["he", "en", "ar"],
+      "lang": [
+        "he",
+        "en",
+        "ar"
+      ],
       "region": "israel",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2363,9 +3170,16 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.cbs.gov.il/en/Pages/default.aspx",
-      "lang": ["he", "en", "ar"],
+      "lang": [
+        "he",
+        "en",
+        "ar"
+      ],
       "region": "israel",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2377,24 +3191,36 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.capmas.gov.eg/",
-      "lang": ["ar", "en"],
+      "lang": [
+        "ar",
+        "en"
+      ],
       "region": "egypt",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "AF_OAFR",
       "name": "openAFRICA",
       "type": "CKAN",
       "acc": 3,
       "url": "https://africaopendata.org/api/3/action/package_search",
-      "lang": ["en", "fr"],
+      "lang": [
+        "en",
+        "fr"
+      ],
       "region": "africa",
-      "domains": ["governance", "demographics", "development"],
+      "domains": [
+        "governance",
+        "demographics",
+        "development"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2406,9 +3232,16 @@
       "type": "REST",
       "acc": 1,
       "url": "https://dataportal.opendataforafrica.org/",
-      "lang": ["en", "fr"],
+      "lang": [
+        "en",
+        "fr"
+      ],
       "region": "africa",
-      "domains": ["economics", "infrastructure", "demographics"],
+      "domains": [
+        "economics",
+        "infrastructure",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2420,9 +3253,14 @@
       "type": "DKAN",
       "acc": 1,
       "url": "https://data.gov.za/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "south_africa",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2434,9 +3272,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.statssa.gov.za/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "south_africa",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2448,9 +3291,16 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://www.opendata.go.ke/",
-      "lang": ["en", "sw"],
+      "lang": [
+        "en",
+        "sw"
+      ],
       "region": "kenya",
-      "domains": ["governance", "demographics", "health"],
+      "domains": [
+        "governance",
+        "demographics",
+        "health"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2462,9 +3312,14 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.knbs.or.ke/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "kenya",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2476,9 +3331,14 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.nigerianstat.gov.ng/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "nigeria",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2490,9 +3350,14 @@
       "type": "DKAN",
       "acc": 1,
       "url": "https://data.gov.gh/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "ghana",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2504,9 +3369,16 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://opendata.rwanda.rw/",
-      "lang": ["en", "fr", "rw"],
+      "lang": [
+        "en",
+        "fr",
+        "rw"
+      ],
       "region": "rwanda",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2518,9 +3390,15 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://www.data.gov.ma/",
-      "lang": ["ar", "fr"],
+      "lang": [
+        "ar",
+        "fr"
+      ],
       "region": "morocco",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2532,9 +3410,15 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://www.data.gov.tn/",
-      "lang": ["ar", "fr"],
+      "lang": [
+        "ar",
+        "fr"
+      ],
       "region": "tunisia",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2546,9 +3430,14 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.ubos.org/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "uganda",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2560,9 +3449,15 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.statsethiopia.gov.et/",
-      "lang": ["en", "am"],
+      "lang": [
+        "en",
+        "am"
+      ],
       "region": "ethiopia",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2574,24 +3469,33 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://www.data.gouv.sn/",
-      "lang": ["fr"],
+      "lang": [
+        "fr"
+      ],
       "region": "senegal",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "BR_GOV",
       "name": "dados.gov.br (Brazil)",
       "type": "CKAN",
       "acc": 1,
       "url": "https://dados.gov.br/api/3/action/package_search",
-      "lang": ["pt"],
+      "lang": [
+        "pt"
+      ],
       "region": "brazil",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2603,9 +3507,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://servicodados.ibge.gov.br/api/",
-      "lang": ["pt", "en"],
+      "lang": [
+        "pt",
+        "en"
+      ],
       "region": "brazil",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2617,9 +3527,14 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://datos.gob.mx/busca/api/3/action/package_search",
-      "lang": ["es"],
+      "lang": [
+        "es"
+      ],
       "region": "mexico",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2631,24 +3546,36 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.inegi.org.mx/servicios/api_indicadores.html",
-      "lang": ["es", "en"],
+      "lang": [
+        "es",
+        "en"
+      ],
       "region": "mexico",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
       "verification": "documented_endpoint"
     },
-
     {
       "id": "SCI_OAL",
       "name": "OpenAlex (Scholarly Works)",
       "type": "REST",
       "acc": 1,
       "url": "https://api.openalex.org/works",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["research", "publications", "social_sciences", "literature"],
+      "domains": [
+        "research",
+        "publications",
+        "social_sciences",
+        "literature"
+      ],
       "license": "CC0-1.0",
       "historical": true,
       "auth": "none",
@@ -2660,9 +3587,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://api.crossref.org/works",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["research", "publications"],
+      "domains": [
+        "research",
+        "publications"
+      ],
       "license": "CC0-1.0",
       "historical": true,
       "auth": "none",
@@ -2674,9 +3606,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://api.datacite.org/dois",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["research", "publications"],
+      "domains": [
+        "research",
+        "publications"
+      ],
       "license": "CC0-1.0",
       "historical": true,
       "auth": "none",
@@ -2688,9 +3625,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://export.arxiv.org/api/query",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["research", "publications", "preprints"],
+      "domains": [
+        "research",
+        "publications",
+        "preprints"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2702,9 +3645,15 @@
       "type": "REST",
       "acc": 2,
       "url": "https://api.biorxiv.org/details/biorxiv/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["research", "publications", "health"],
+      "domains": [
+        "research",
+        "publications",
+        "health"
+      ],
       "license": "CC-BY-4.0",
       "historical": true,
       "auth": "none",
@@ -2716,9 +3665,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://doaj.org/api/search/articles/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["publications", "open_access"],
+      "domains": [
+        "publications",
+        "open_access"
+      ],
       "license": "CC0-1.0",
       "historical": true,
       "auth": "none",
@@ -2730,9 +3684,14 @@
       "type": "REST",
       "acc": 2,
       "url": "https://api.core.ac.uk/v3/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["publications", "open_access"],
+      "domains": [
+        "publications",
+        "open_access"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -2744,9 +3703,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://api.openaire.eu/search/researchProducts",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "europe",
-      "domains": ["research", "publications"],
+      "domains": [
+        "research",
+        "publications"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2758,9 +3722,15 @@
       "type": "REST",
       "acc": 2,
       "url": "https://www.base-search.net/about/en/about_develop.php",
-      "lang": ["en", "de"],
+      "lang": [
+        "en",
+        "de"
+      ],
       "region": "global",
-      "domains": ["research", "publications"],
+      "domains": [
+        "research",
+        "publications"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -2772,9 +3742,15 @@
       "type": "REST",
       "acc": 2,
       "url": "https://zenodo.org/api/records/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["research", "publications", "datasets"],
+      "domains": [
+        "research",
+        "publications",
+        "datasets"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -2786,9 +3762,14 @@
       "type": "REST",
       "acc": 2,
       "url": "https://api.figshare.com/v2/articles",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["research", "datasets"],
+      "domains": [
+        "research",
+        "datasets"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2800,9 +3781,14 @@
       "type": "REST",
       "acc": 2,
       "url": "https://api.osf.io/v2/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["research", "datasets"],
+      "domains": [
+        "research",
+        "datasets"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2814,9 +3800,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://pub.orcid.org/v3.0/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["research", "authors"],
+      "domains": [
+        "research",
+        "authors"
+      ],
       "license": "CC0-1.0",
       "historical": true,
       "auth": "none",
@@ -2828,9 +3819,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://api.ror.org/organizations",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["research", "institutions"],
+      "domains": [
+        "research",
+        "institutions"
+      ],
       "license": "CC0-1.0",
       "historical": true,
       "auth": "none",
@@ -2842,9 +3838,14 @@
       "type": "REST",
       "acc": 2,
       "url": "https://api.semanticscholar.org/graph/v1/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["research", "publications"],
+      "domains": [
+        "research",
+        "publications"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -2856,9 +3857,15 @@
       "type": "REST",
       "acc": 2,
       "url": "https://www.openicpsr.org/openicpsr/search/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["social_sciences", "sociology", "political_science"],
+      "domains": [
+        "social_sciences",
+        "sociology",
+        "political_science"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -2870,9 +3877,15 @@
       "type": "REST",
       "acc": 2,
       "url": "https://ideas.repec.org/api.html",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["economics", "research", "publications"],
+      "domains": [
+        "economics",
+        "research",
+        "publications"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -2884,9 +3897,14 @@
       "type": "DOC_INDEX",
       "acc": 2,
       "url": "https://www.ssrn.com/index.cfm/en/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["social_sciences", "publications"],
+      "domains": [
+        "social_sciences",
+        "publications"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2898,9 +3916,15 @@
       "type": "REST",
       "acc": 2,
       "url": "https://constellate.org/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["publications", "research", "literature"],
+      "domains": [
+        "publications",
+        "research",
+        "literature"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -2912,9 +3936,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "europe",
-      "domains": ["health", "research", "publications"],
+      "domains": [
+        "health",
+        "research",
+        "publications"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2926,24 +3956,36 @@
       "type": "REST",
       "acc": 1,
       "url": "https://clinicaltrials.gov/api/v2/studies",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["health", "research"],
+      "domains": [
+        "health",
+        "research"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "documented_endpoint"
     },
-
     {
       "id": "LIB_WIK",
       "name": "Wikidata Query Service (SPARQL)",
       "type": "SPARQL",
       "acc": 2,
       "url": "https://query.wikidata.org/sparql",
-      "lang": ["en", "multilingual"],
+      "lang": [
+        "en",
+        "multilingual"
+      ],
       "region": "global",
-      "domains": ["knowledge", "demographics", "literature", "history"],
+      "domains": [
+        "knowledge",
+        "demographics",
+        "literature",
+        "history"
+      ],
       "license": "CC0-1.0",
       "historical": true,
       "auth": "none",
@@ -2955,9 +3997,15 @@
       "type": "REST",
       "acc": 2,
       "url": "https://openlibrary.org/search.json",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["literature", "library", "publications"],
+      "domains": [
+        "literature",
+        "library",
+        "publications"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -2969,9 +4017,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://viaf.org/viaf/search",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["literature", "library", "authors"],
+      "domains": [
+        "literature",
+        "library",
+        "authors"
+      ],
       "license": "ODC-BY-1.0",
       "historical": true,
       "auth": "none",
@@ -2983,24 +4037,34 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.worldcat.org/webservices/catalog/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["literature", "library"],
+      "domains": [
+        "literature",
+        "library"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "AGM_DAS",
       "name": "DASSI (Italian Social Sciences Data Archive)",
       "type": "DOC_INDEX",
       "acc": 2,
       "url": "https://www.dassi-archive.it/",
-      "lang": ["it", "en"],
+      "lang": [
+        "it",
+        "en"
+      ],
       "region": "italy",
-      "domains": ["social_sciences", "sociology"],
+      "domains": [
+        "social_sciences",
+        "sociology"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3012,9 +4076,14 @@
       "type": "WFS",
       "acc": 1,
       "url": "https://emodnet.ec.europa.eu/geonetwork/srv/eng/csw",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "europe",
-      "domains": ["environment", "marine"],
+      "domains": [
+        "environment",
+        "marine"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3026,24 +4095,34 @@
       "type": "DOC_INDEX",
       "acc": 2,
       "url": "https://reutersinstitute.politics.ox.ac.uk/digital-news-report",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["media", "research"],
+      "domains": [
+        "media",
+        "research"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "EU_CZE",
       "name": "data.gov.cz (Czech Republic)",
       "type": "REST",
       "acc": 1,
       "url": "https://data.gov.cz/api/",
-      "lang": ["cs", "en"],
+      "lang": [
+        "cs",
+        "en"
+      ],
       "region": "czech_republic",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3055,9 +4134,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.czso.cz/csu/czso/open_data",
-      "lang": ["cs", "en"],
+      "lang": [
+        "cs",
+        "en"
+      ],
       "region": "czech_republic",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3069,9 +4154,15 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://kozadat.hu/",
-      "lang": ["hu", "en"],
+      "lang": [
+        "hu",
+        "en"
+      ],
       "region": "hungary",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3083,9 +4174,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.ksh.hu/stadat_eng",
-      "lang": ["hu", "en"],
+      "lang": [
+        "hu",
+        "en"
+      ],
       "region": "hungary",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3097,9 +4194,15 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://data.gov.ro/api/3/action/package_search",
-      "lang": ["ro", "en"],
+      "lang": [
+        "ro",
+        "en"
+      ],
       "region": "romania",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3111,9 +4214,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://insse.ro/cms/en",
-      "lang": ["ro", "en"],
+      "lang": [
+        "ro",
+        "en"
+      ],
       "region": "romania",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3125,9 +4234,15 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://data.egov.bg/api/3/action/package_search",
-      "lang": ["bg", "en"],
+      "lang": [
+        "bg",
+        "en"
+      ],
       "region": "bulgaria",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3139,9 +4254,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.nsi.bg/en",
-      "lang": ["bg", "en"],
+      "lang": [
+        "bg",
+        "en"
+      ],
       "region": "bulgaria",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3153,9 +4274,15 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://podatki.gov.si/api/3/action/package_search",
-      "lang": ["sl", "en"],
+      "lang": [
+        "sl",
+        "en"
+      ],
       "region": "slovenia",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3167,9 +4294,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://pxweb.stat.si/SiStatData/api/v1/en/",
-      "lang": ["sl", "en"],
+      "lang": [
+        "sl",
+        "en"
+      ],
       "region": "slovenia",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3181,9 +4314,15 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://data.gov.sk/api/3/action/package_search",
-      "lang": ["sk", "en"],
+      "lang": [
+        "sk",
+        "en"
+      ],
       "region": "slovakia",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3195,9 +4334,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://datacube.statistics.sk/",
-      "lang": ["sk", "en"],
+      "lang": [
+        "sk",
+        "en"
+      ],
       "region": "slovakia",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3209,9 +4354,15 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://data.gov.hr/api/3/action/package_search",
-      "lang": ["hr", "en"],
+      "lang": [
+        "hr",
+        "en"
+      ],
       "region": "croatia",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3223,9 +4374,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://podaci.dzs.hr/en/",
-      "lang": ["hr", "en"],
+      "lang": [
+        "hr",
+        "en"
+      ],
       "region": "croatia",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3237,9 +4394,16 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://data.public.lu/api/1/",
-      "lang": ["fr", "de", "en"],
+      "lang": [
+        "fr",
+        "de",
+        "en"
+      ],
       "region": "luxembourg",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3251,9 +4415,16 @@
       "type": "REST",
       "acc": 1,
       "url": "https://statistiques.public.lu/en.html",
-      "lang": ["fr", "de", "en"],
+      "lang": [
+        "fr",
+        "de",
+        "en"
+      ],
       "region": "luxembourg",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3265,9 +4436,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://px.hagstofa.is/pxen/api/v1/en/",
-      "lang": ["is", "en"],
+      "lang": [
+        "is",
+        "en"
+      ],
       "region": "iceland",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3279,9 +4456,15 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://avaandmed.eesti.ee/api/3/action/package_search",
-      "lang": ["et", "en"],
+      "lang": [
+        "et",
+        "en"
+      ],
       "region": "estonia",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3293,9 +4476,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://andmed.stat.ee/api/v1/en/",
-      "lang": ["et", "en"],
+      "lang": [
+        "et",
+        "en"
+      ],
       "region": "estonia",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3307,9 +4496,15 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://data.gov.lv/dati/eng/api/3/action/package_search",
-      "lang": ["lv", "en"],
+      "lang": [
+        "lv",
+        "en"
+      ],
       "region": "latvia",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3321,9 +4516,15 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://data.gov.lt/api/3/action/package_search",
-      "lang": ["lt", "en"],
+      "lang": [
+        "lt",
+        "en"
+      ],
       "region": "lithuania",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3335,9 +4536,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://osp.stat.gov.lt/en/services-open-data-api",
-      "lang": ["lt", "en"],
+      "lang": [
+        "lt",
+        "en"
+      ],
       "region": "lithuania",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3349,9 +4556,15 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://data.gov.mt/api/3/action/package_search",
-      "lang": ["mt", "en"],
+      "lang": [
+        "mt",
+        "en"
+      ],
       "region": "malta",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3363,9 +4576,15 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://www.data.gov.cy/api/3/action/package_search",
-      "lang": ["el", "en"],
+      "lang": [
+        "el",
+        "en"
+      ],
       "region": "cyprus",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3377,9 +4596,15 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://data.gov.rs/sr/api/3/action/package_search",
-      "lang": ["sr", "en"],
+      "lang": [
+        "sr",
+        "en"
+      ],
       "region": "serbia",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3391,24 +4616,35 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://data.gov.ua/api/3/action/package_search",
-      "lang": ["uk", "en"],
+      "lang": [
+        "uk",
+        "en"
+      ],
       "region": "ukraine",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "UK_WAL",
       "name": "StatsWales / Open Data Wales",
       "type": "REST",
       "acc": 1,
       "url": "https://statswales.gov.wales/Catalogue",
-      "lang": ["en", "cy"],
+      "lang": [
+        "en",
+        "cy"
+      ],
       "region": "uk_wales",
-      "domains": ["regional", "demographics"],
+      "domains": [
+        "regional",
+        "demographics"
+      ],
       "license": "OGL-3.0",
       "historical": true,
       "auth": "none",
@@ -3420,24 +4656,34 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://www.opendatani.gov.uk/api/3/action/package_search",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "uk_ni",
-      "domains": ["regional", "demographics"],
+      "domains": [
+        "regional",
+        "demographics"
+      ],
       "license": "OGL-3.0",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "US_USDA",
       "name": "USDA (US Department of Agriculture)",
       "type": "REST",
       "acc": 1,
       "url": "https://api.nal.usda.gov/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["agriculture", "food", "economics"],
+      "domains": [
+        "agriculture",
+        "food",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -3449,9 +4695,13 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.epa.gov/developers/data-services-apis",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["environment"],
+      "domains": [
+        "environment"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -3463,9 +4713,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.ncei.noaa.gov/cdo-web/api/v2/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["environment", "climate"],
+      "domains": [
+        "environment",
+        "climate"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -3477,9 +4732,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://api.nasa.gov/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["science", "environment"],
+      "domains": [
+        "science",
+        "environment"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -3491,9 +4751,14 @@
       "type": "Socrata",
       "acc": 1,
       "url": "https://data.cdc.gov/resource/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["health", "demographics"],
+      "domains": [
+        "health",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -3505,9 +4770,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://developer.uspto.gov/api-catalog",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["innovation", "patents"],
+      "domains": [
+        "innovation",
+        "patents"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3519,9 +4789,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://data.sec.gov/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["finance", "corporate"],
+      "domains": [
+        "finance",
+        "corporate"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3533,9 +4808,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://opendata.fcc.gov/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["telecommunications", "media"],
+      "domains": [
+        "telecommunications",
+        "media"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3547,9 +4827,13 @@
       "type": "REST",
       "acc": 1,
       "url": "https://data.ed.gov/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["education"],
+      "domains": [
+        "education"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3561,9 +4845,15 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.gao.gov/api/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["governance", "spending", "audit"],
+      "domains": [
+        "governance",
+        "spending",
+        "audit"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3575,9 +4865,14 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://crsreports.congress.gov/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["governance", "research"],
+      "domains": [
+        "governance",
+        "research"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3589,9 +4884,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.cdc.gov/nchs/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["health", "demographics"],
+      "domains": [
+        "health",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3603,9 +4903,14 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://bjs.ojp.gov/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["justice", "demographics"],
+      "domains": [
+        "justice",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3617,9 +4922,13 @@
       "type": "Socrata",
       "acc": 1,
       "url": "https://data.sfgov.org/resource/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa_sf",
-      "domains": ["municipal"],
+      "domains": [
+        "municipal"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -3631,24 +4940,33 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://data.boston.gov/api/3/action/package_search",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa_boston",
-      "domains": ["municipal"],
+      "domains": [
+        "municipal"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "JP_MIC",
       "name": "Ministry of Internal Affairs and Communications (Japan)",
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.soumu.go.jp/english/",
-      "lang": ["ja", "en"],
+      "lang": [
+        "ja",
+        "en"
+      ],
       "region": "japan",
-      "domains": ["governance", "telecommunications"],
+      "domains": [
+        "governance",
+        "telecommunications"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3660,9 +4978,16 @@
       "type": "SPARQL",
       "acc": 1,
       "url": "https://data.e-stat.go.jp/lodw/sparql",
-      "lang": ["ja", "en"],
+      "lang": [
+        "ja",
+        "en"
+      ],
       "region": "japan",
-      "domains": ["demographics", "economics", "linked_data"],
+      "domains": [
+        "demographics",
+        "economics",
+        "linked_data"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3674,24 +4999,35 @@
       "type": "REST",
       "acc": 1,
       "url": "https://api.jstage.jst.go.jp/",
-      "lang": ["ja", "en"],
+      "lang": [
+        "ja",
+        "en"
+      ],
       "region": "japan",
-      "domains": ["research", "publications"],
+      "domains": [
+        "research",
+        "publications"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "documented_endpoint"
     },
-
     {
       "id": "AS_VNM",
       "name": "data.gov.vn (Vietnam)",
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://data.gov.vn/",
-      "lang": ["vi", "en"],
+      "lang": [
+        "vi",
+        "en"
+      ],
       "region": "vietnam",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3703,9 +5039,15 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.gso.gov.vn/en/homepage/",
-      "lang": ["vi", "en"],
+      "lang": [
+        "vi",
+        "en"
+      ],
       "region": "vietnam",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3717,9 +5059,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://developer.data.gov.my/",
-      "lang": ["ms", "en"],
+      "lang": [
+        "ms",
+        "en"
+      ],
       "region": "malaysia",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3731,9 +5079,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://open.dosm.gov.my/",
-      "lang": ["ms", "en"],
+      "lang": [
+        "ms",
+        "en"
+      ],
       "region": "malaysia",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3745,9 +5099,15 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.pbs.gov.pk/",
-      "lang": ["en", "ur"],
+      "lang": [
+        "en",
+        "ur"
+      ],
       "region": "pakistan",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3759,9 +5119,15 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.bbs.gov.bd/",
-      "lang": ["en", "bn"],
+      "lang": [
+        "en",
+        "bn"
+      ],
       "region": "bangladesh",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3773,9 +5139,16 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.statistics.gov.lk/",
-      "lang": ["en", "si", "ta"],
+      "lang": [
+        "en",
+        "si",
+        "ta"
+      ],
       "region": "sri_lanka",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3787,9 +5160,16 @@
       "type": "REST",
       "acc": 1,
       "url": "https://data.egov.kz/",
-      "lang": ["kk", "ru", "en"],
+      "lang": [
+        "kk",
+        "ru",
+        "en"
+      ],
       "region": "kazakhstan",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3801,9 +5181,15 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.1212.mn/en/",
-      "lang": ["mn", "en"],
+      "lang": [
+        "mn",
+        "en"
+      ],
       "region": "mongolia",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3815,24 +5201,35 @@
       "type": "CKAN",
       "acc": 2,
       "url": "https://opendatanepal.com/api/3/action/package_search",
-      "lang": ["en", "ne"],
+      "lang": [
+        "en",
+        "ne"
+      ],
       "region": "nepal",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "ME_IRN",
       "name": "Statistical Centre of Iran",
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.amar.org.ir/english",
-      "lang": ["fa", "en"],
+      "lang": [
+        "fa",
+        "en"
+      ],
       "region": "iran",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3844,9 +5241,14 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://data.gov.kw/",
-      "lang": ["ar", "en"],
+      "lang": [
+        "ar",
+        "en"
+      ],
       "region": "kuwait",
-      "domains": ["governance"],
+      "domains": [
+        "governance"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3858,24 +5260,35 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.pcbs.gov.ps/default.aspx",
-      "lang": ["ar", "en"],
+      "lang": [
+        "ar",
+        "en"
+      ],
       "region": "palestine",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "AF_DZA",
       "name": "ONS Algeria (National Statistical Office)",
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.ons.dz/",
-      "lang": ["ar", "fr"],
+      "lang": [
+        "ar",
+        "fr"
+      ],
       "region": "algeria",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3887,9 +5300,14 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.statsbots.org.bw/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "botswana",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3901,9 +5319,14 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.zamstats.gov.zm/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "zambia",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3915,9 +5338,14 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.ine.gov.mz/",
-      "lang": ["pt"],
+      "lang": [
+        "pt"
+      ],
       "region": "mozambique",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3929,9 +5357,14 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.instat.mg/",
-      "lang": ["fr"],
+      "lang": [
+        "fr"
+      ],
       "region": "madagascar",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3943,9 +5376,14 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.zimstat.co.zw/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "zimbabwe",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3957,9 +5395,15 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.ins-cameroun.cm/",
-      "lang": ["fr", "en"],
+      "lang": [
+        "fr",
+        "en"
+      ],
       "region": "cameroon",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -3971,24 +5415,36 @@
       "type": "REST",
       "acc": 2,
       "url": "https://www.afrobarometer.org/data/",
-      "lang": ["en", "fr", "pt"],
+      "lang": [
+        "en",
+        "fr",
+        "pt"
+      ],
       "region": "africa",
-      "domains": ["public_opinion", "social_sciences", "political_science"],
+      "domains": [
+        "public_opinion",
+        "social_sciences",
+        "political_science"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "LA_ARG",
       "name": "datos.gob.ar (Argentina)",
       "type": "CKAN",
       "acc": 1,
       "url": "https://datos.gob.ar/api/3/action/package_search",
-      "lang": ["es"],
+      "lang": [
+        "es"
+      ],
       "region": "argentina",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -4000,9 +5456,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://apis.datos.gob.ar/series/api/",
-      "lang": ["es"],
+      "lang": [
+        "es"
+      ],
       "region": "argentina",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -4014,9 +5475,14 @@
       "type": "DKAN",
       "acc": 1,
       "url": "https://datos.gob.cl/api/3/action/package_search",
-      "lang": ["es"],
+      "lang": [
+        "es"
+      ],
       "region": "chile",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -4028,9 +5494,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.ine.gob.cl/",
-      "lang": ["es"],
+      "lang": [
+        "es"
+      ],
       "region": "chile",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -4042,9 +5513,14 @@
       "type": "Socrata",
       "acc": 1,
       "url": "https://www.datos.gov.co/resource/",
-      "lang": ["es"],
+      "lang": [
+        "es"
+      ],
       "region": "colombia",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -4056,9 +5532,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.dane.gov.co/",
-      "lang": ["es"],
+      "lang": [
+        "es"
+      ],
       "region": "colombia",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -4070,9 +5551,14 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://www.datosabiertos.gob.pe/api/3/action/package_search",
-      "lang": ["es"],
+      "lang": [
+        "es"
+      ],
       "region": "peru",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -4084,9 +5570,14 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.inei.gob.pe/",
-      "lang": ["es"],
+      "lang": [
+        "es"
+      ],
       "region": "peru",
-      "domains": ["demographics", "economics"],
+      "domains": [
+        "demographics",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -4098,9 +5589,14 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://catalogodatos.gub.uy/api/3/action/package_search",
-      "lang": ["es"],
+      "lang": [
+        "es"
+      ],
       "region": "uruguay",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -4112,9 +5608,14 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://datosabiertos.presidencia.go.cr/api/3/action/package_search",
-      "lang": ["es"],
+      "lang": [
+        "es"
+      ],
       "region": "costa_rica",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -4126,9 +5627,14 @@
       "type": "CKAN",
       "acc": 1,
       "url": "https://www.datosabiertos.gob.ec/api/3/action/package_search",
-      "lang": ["es"],
+      "lang": [
+        "es"
+      ],
       "region": "ecuador",
-      "domains": ["governance", "demographics"],
+      "domains": [
+        "governance",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -4140,9 +5646,17 @@
       "type": "REST",
       "acc": 1,
       "url": "https://statistics.cepal.org/portal/cepalstat/",
-      "lang": ["es", "en", "pt"],
+      "lang": [
+        "es",
+        "en",
+        "pt"
+      ],
       "region": "latin_america",
-      "domains": ["economics", "demographics", "development"],
+      "domains": [
+        "economics",
+        "demographics",
+        "development"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -4154,24 +5668,36 @@
       "type": "DOC_INDEX",
       "acc": 2,
       "url": "https://www.latinobarometro.org/lat.jsp",
-      "lang": ["es", "en"],
+      "lang": [
+        "es",
+        "en"
+      ],
       "region": "latin_america",
-      "domains": ["public_opinion", "social_sciences"],
+      "domains": [
+        "public_opinion",
+        "social_sciences"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "AU_TROVE",
       "name": "Trove (National Library of Australia)",
       "type": "REST",
       "acc": 1,
       "url": "https://api.trove.nla.gov.au/v3/result",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "australia",
-      "domains": ["literature", "library", "history", "culture"],
+      "domains": [
+        "literature",
+        "library",
+        "history",
+        "culture"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -4183,9 +5709,14 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.aihw.gov.au/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "australia",
-      "domains": ["health", "demographics"],
+      "domains": [
+        "health",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -4197,24 +5728,34 @@
       "type": "REST",
       "acc": 1,
       "url": "https://natlib.govt.nz/about-us/strategy-and-policy/dia-api-terms-of-use",
-      "lang": ["en", "mi"],
+      "lang": [
+        "en",
+        "mi"
+      ],
       "region": "new_zealand",
-      "domains": ["literature", "history"],
+      "domains": [
+        "literature",
+        "history"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "DEM_HMD",
       "name": "Human Mortality Database",
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.mortality.org/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["demographics", "mortality"],
+      "domains": [
+        "demographics",
+        "mortality"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -4226,9 +5767,14 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.humanfertility.org/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["demographics", "fertility"],
+      "domains": [
+        "demographics",
+        "fertility"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -4240,9 +5786,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://api.dhsprogram.com/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["demographics", "health"],
+      "domains": [
+        "demographics",
+        "health"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -4254,9 +5805,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://international.ipums.org/international/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["demographics", "microdata"],
+      "domains": [
+        "demographics",
+        "microdata"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -4268,9 +5824,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://ghdx.healthdata.org/gbd-results-tool",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["health", "demographics"],
+      "domains": [
+        "health",
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -4282,24 +5843,32 @@
       "type": "REST",
       "acc": 1,
       "url": "https://population.un.org/dataportalapi/api/v1/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["demographics"],
+      "domains": [
+        "demographics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "documented_endpoint"
     },
-
     {
       "id": "ECO_PWT",
       "name": "Penn World Tables",
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.rug.nl/ggdc/productivity/pwt/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["economics", "trade"],
+      "domains": [
+        "economics",
+        "trade"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -4311,9 +5880,14 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["economics", "history"],
+      "domains": [
+        "economics",
+        "history"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -4325,9 +5899,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://comtradeapi.un.org/data/v1/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["trade", "economics"],
+      "domains": [
+        "trade",
+        "economics"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -4339,9 +5918,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://stats.bis.org/api/v1/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["finance", "monetary"],
+      "domains": [
+        "finance",
+        "monetary"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -4353,9 +5937,14 @@
       "type": "DOC_INDEX",
       "acc": 2,
       "url": "https://www.gtap.agecon.purdue.edu/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["trade", "economics"],
+      "domains": [
+        "trade",
+        "economics"
+      ],
       "license": "paid",
       "historical": true,
       "auth": "paid_key",
@@ -4367,24 +5956,36 @@
       "type": "REST",
       "acc": 2,
       "url": "https://ourworldindata.org/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["economics", "demographics", "health", "environment"],
+      "domains": [
+        "economics",
+        "demographics",
+        "health",
+        "environment"
+      ],
       "license": "CC-BY-4.0",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "SOC_WVS",
       "name": "World Values Survey",
       "type": "DOC_INDEX",
       "acc": 2,
       "url": "https://www.worldvaluessurvey.org/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["public_opinion", "sociology", "values"],
+      "domains": [
+        "public_opinion",
+        "sociology",
+        "values"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -4396,9 +5997,16 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://europa.eu/eurobarometer/",
-      "lang": ["en", "fr", "de"],
+      "lang": [
+        "en",
+        "fr",
+        "de"
+      ],
       "region": "europe",
-      "domains": ["public_opinion", "sociology"],
+      "domains": [
+        "public_opinion",
+        "sociology"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -4410,9 +6018,14 @@
       "type": "DOC_INDEX",
       "acc": 2,
       "url": "https://issp.org/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["sociology", "public_opinion"],
+      "domains": [
+        "sociology",
+        "public_opinion"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -4424,9 +6037,14 @@
       "type": "DOC_INDEX",
       "acc": 2,
       "url": "https://www.asianbarometer.org/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "asia",
-      "domains": ["public_opinion", "political_science"],
+      "domains": [
+        "public_opinion",
+        "political_science"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -4438,9 +6056,15 @@
       "type": "DOC_INDEX",
       "acc": 2,
       "url": "https://www.arabbarometer.org/",
-      "lang": ["en", "ar"],
+      "lang": [
+        "en",
+        "ar"
+      ],
       "region": "middle_east",
-      "domains": ["public_opinion", "political_science"],
+      "domains": [
+        "public_opinion",
+        "political_science"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -4452,9 +6076,16 @@
       "type": "DOC_INDEX",
       "acc": 2,
       "url": "https://www.vanderbilt.edu/lapop/",
-      "lang": ["en", "es", "pt"],
+      "lang": [
+        "en",
+        "es",
+        "pt"
+      ],
       "region": "americas",
-      "domains": ["public_opinion", "political_science"],
+      "domains": [
+        "public_opinion",
+        "political_science"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -4466,24 +6097,35 @@
       "type": "DOC_INDEX",
       "acc": 2,
       "url": "https://www.pewresearch.org/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["public_opinion", "social_sciences", "media"],
+      "domains": [
+        "public_opinion",
+        "social_sciences",
+        "media"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "SCI_PLOS",
       "name": "PLOS (Public Library of Science)",
       "type": "REST",
       "acc": 1,
       "url": "https://api.plos.org/search",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["research", "publications", "open_access"],
+      "domains": [
+        "research",
+        "publications",
+        "open_access"
+      ],
       "license": "CC-BY-4.0",
       "historical": true,
       "auth": "none",
@@ -4495,9 +6137,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://api.elifesciences.org/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["research", "publications"],
+      "domains": [
+        "research",
+        "publications"
+      ],
       "license": "CC-BY-4.0",
       "historical": true,
       "auth": "none",
@@ -4509,9 +6156,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://f1000research.com/api/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["research", "publications"],
+      "domains": [
+        "research",
+        "publications"
+      ],
       "license": "CC-BY-4.0",
       "historical": true,
       "auth": "none",
@@ -4523,9 +6175,14 @@
       "type": "REST",
       "acc": 2,
       "url": "https://api.osf.io/v2/preprints/?filter[provider]=psyarxiv",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["research", "psychology"],
+      "domains": [
+        "research",
+        "psychology"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -4537,27 +6194,18 @@
       "type": "REST",
       "acc": 2,
       "url": "https://api.osf.io/v2/preprints/?filter[provider]=socarxiv",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["research", "social_sciences"],
+      "domains": [
+        "research",
+        "social_sciences"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "documented_endpoint"
-    },
-    {
-      "id": "SCI_EAR",
-      "name": "EarthArXiv",
-      "type": "REST",
-      "acc": 2,
-      "url": "https://eartharxiv.org/api/",
-      "lang": ["en"],
-      "region": "global",
-      "domains": ["research", "earth_sciences"],
-      "license": "varies",
-      "historical": true,
-      "auth": "none",
-      "verification": "confirmed_existence_only"
     },
     {
       "id": "SCI_LSE",
@@ -4565,24 +6213,34 @@
       "type": "OAI-PMH",
       "acc": 2,
       "url": "https://eprints.lse.ac.uk/cgi/oai2",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "uk",
-      "domains": ["social_sciences", "publications"],
+      "domains": [
+        "social_sciences",
+        "publications"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
     },
-
     {
       "id": "LIB_DAR",
       "name": "DARIAH (Digital Research in Arts and Humanities)",
       "type": "DOC_INDEX",
       "acc": 2,
       "url": "https://www.dariah.eu/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "europe",
-      "domains": ["humanities", "literature", "research"],
+      "domains": [
+        "humanities",
+        "literature",
+        "research"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -4594,9 +6252,14 @@
       "type": "REST",
       "acc": 2,
       "url": "https://www.clarin.eu/content/virtual-language-observatory",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "europe",
-      "domains": ["linguistics", "humanities"],
+      "domains": [
+        "linguistics",
+        "humanities"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -4608,23 +6271,17 @@
       "type": "REST",
       "acc": 2,
       "url": "https://www.perseus.tufts.edu/hopper/api/",
-      "lang": ["en", "grc", "la"],
+      "lang": [
+        "en",
+        "grc",
+        "la"
+      ],
       "region": "global",
-      "domains": ["literature", "humanities", "history"],
-      "license": "varies",
-      "historical": true,
-      "auth": "none",
-      "verification": "confirmed_existence_only"
-    },
-    {
-      "id": "LIB_OGL",
-      "name": "Open Greek and Latin",
-      "type": "GITHUB",
-      "acc": 2,
-      "url": "https://www.dh.uni-leipzig.de/wo/projects/open-greek-and-latin-project/",
-      "lang": ["en", "grc", "la"],
-      "region": "global",
-      "domains": ["literature", "humanities", "history"],
+      "domains": [
+        "literature",
+        "humanities",
+        "history"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -4636,9 +6293,15 @@
       "type": "REST",
       "acc": 2,
       "url": "https://textgridrep.org/",
-      "lang": ["de", "en"],
+      "lang": [
+        "de",
+        "en"
+      ],
       "region": "europe",
-      "domains": ["literature", "humanities"],
+      "domains": [
+        "literature",
+        "humanities"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -4650,9 +6313,15 @@
       "type": "REST",
       "acc": 2,
       "url": "https://www.deutschestextarchiv.de/api/",
-      "lang": ["de"],
+      "lang": [
+        "de"
+      ],
       "region": "germany",
-      "domains": ["literature", "linguistics", "history"],
+      "domains": [
+        "literature",
+        "linguistics",
+        "history"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -4664,9 +6333,15 @@
       "type": "REST",
       "acc": 2,
       "url": "https://librivox.org/api/feed/audiobooks",
-      "lang": ["en", "multilingual"],
+      "lang": [
+        "en",
+        "multilingual"
+      ],
       "region": "global",
-      "domains": ["literature", "audiobooks"],
+      "domains": [
+        "literature",
+        "audiobooks"
+      ],
       "license": "PD",
       "historical": true,
       "auth": "none",
@@ -4678,9 +6353,14 @@
       "type": "REST",
       "acc": 2,
       "url": "https://en.wikisource.org/w/api.php",
-      "lang": ["multilingual"],
+      "lang": [
+        "multilingual"
+      ],
       "region": "global",
-      "domains": ["literature", "history"],
+      "domains": [
+        "literature",
+        "history"
+      ],
       "license": "CC-BY-SA-4.0",
       "historical": true,
       "auth": "none",
@@ -4692,9 +6372,14 @@
       "type": "REST",
       "acc": 1,
       "url": "https://www.folger.edu/explore/shakespeares-works/api",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "usa",
-      "domains": ["literature", "humanities"],
+      "domains": [
+        "literature",
+        "humanities"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -4706,24 +6391,33 @@
       "type": "REST",
       "acc": 1,
       "url": "https://catalogue.bnf.fr/api/SRU",
-      "lang": ["fr"],
+      "lang": [
+        "fr"
+      ],
       "region": "france",
-      "domains": ["literature", "library"],
+      "domains": [
+        "literature",
+        "library"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "documented_endpoint"
     },
-
     {
       "id": "GOV_OPC",
       "name": "OpenCorporates",
       "type": "REST",
       "acc": 2,
       "url": "https://api.opencorporates.com/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["corporate", "governance"],
+      "domains": [
+        "corporate",
+        "governance"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "free_key",
@@ -4735,9 +6429,14 @@
       "type": "DOC_INDEX",
       "acc": 2,
       "url": "https://www.transparency.org/en/cpi",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["corruption", "governance"],
+      "domains": [
+        "corruption",
+        "governance"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -4749,9 +6448,15 @@
       "type": "DOC_INDEX",
       "acc": 2,
       "url": "https://freedomhouse.org/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["governance", "democracy", "rights"],
+      "domains": [
+        "governance",
+        "democracy",
+        "rights"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
@@ -4763,15 +6468,18 @@
       "type": "DOC_INDEX",
       "acc": 1,
       "url": "https://www.opengovpartnership.org/",
-      "lang": ["en"],
+      "lang": [
+        "en"
+      ],
       "region": "global",
-      "domains": ["governance", "transparency"],
+      "domains": [
+        "governance",
+        "transparency"
+      ],
       "license": "varies",
       "historical": true,
       "auth": "none",
       "verification": "confirmed_existence_only"
     }
-
   ]
 }
-
