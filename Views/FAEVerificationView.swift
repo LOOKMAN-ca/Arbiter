@@ -62,7 +62,12 @@ struct FAEVerificationView: View {
         }
         .padding(.horizontal, 16)
         .frame(height: 40)
-        .background(Color.black.opacity(0.3))
+        .background(
+            LinearGradient(
+                colors: [Color.black.opacity(0.5), Color.black.opacity(0.2)],
+                startPoint: .top, endPoint: .bottom
+            )
+        )
     }
 
     // MARK: - Summary Card

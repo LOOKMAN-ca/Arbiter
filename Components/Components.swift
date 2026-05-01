@@ -29,12 +29,20 @@ struct ArbiterButton: View {
             }
             .frame(maxWidth: .infinity)
             .padding(.vertical, 10)
-            .background(color.opacity(isInert ? 0.02 : 0.07))
+            .background(color.opacity(isInert ? 0.02 : 0.08))
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(color.opacity(isInert ? 0.15 : 0.45), lineWidth: 0.5)
+                LinearGradient(
+                    colors: [Color.white.opacity(isInert ? 0.01 : 0.06), Color.clear],
+                    startPoint: .top, endPoint: .init(x: 0.5, y: 0.7)
+                )
+                .clipShape(RoundedRectangle(cornerRadius: 10))
             )
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(color.opacity(isInert ? 0.15 : 0.5), lineWidth: 0.5)
+            )
+            .shadow(color: isInert ? .clear : color.opacity(0.12), radius: 8, x: 0, y: 3)
         }
         .buttonStyle(.plain)
         .disabled(isInert)
@@ -97,15 +105,23 @@ struct ArbiterModeSelector: View {
             }
             .padding(10)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(active ? Color.arbiterCyan.opacity(0.05) : Color.clear)
+            .background(active ? Color.arbiterCyan.opacity(0.06) : Color.black.opacity(0.15))
             .clipShape(RoundedRectangle(cornerRadius: 10))
+            .overlay(
+                LinearGradient(
+                    colors: [Color.white.opacity(active ? 0.05 : 0.02), Color.clear],
+                    startPoint: .top, endPoint: .init(x: 0.5, y: 0.6)
+                )
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+            )
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(
-                        active ? Color.arbiterCyan.opacity(0.4) : Color.arbiterBorder,
+                        active ? Color.arbiterCyan.opacity(0.45) : Color.arbiterBorder,
                         lineWidth: 0.5
                     )
             )
+            .shadow(color: active ? Color.arbiterCyan.opacity(0.1) : .black.opacity(0.2), radius: 6, x: 0, y: 2)
         }
         .buttonStyle(.plain)
     }
@@ -126,15 +142,32 @@ struct StepCardView: View {
             header
             contentArea
         }
+        .background(.ultraThinMaterial)
         .background(Color.arbiterSurface)
         .clipShape(RoundedRectangle(cornerRadius: 12))
         .overlay(
+            LinearGradient(
+                colors: [Color.white.opacity(0.05), Color.clear],
+                startPoint: .top,
+                endPoint: .init(x: 0.5, y: 0.5)
+            )
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+        )
+        .overlay(
             RoundedRectangle(cornerRadius: 12)
                 .stroke(
-                    modelColor.opacity(step.status == .running ? 0.4 : 0.12),
-                    lineWidth: 0.5
+                    LinearGradient(
+                        colors: [
+                            modelColor.opacity(step.status == .running ? 0.65 : 0.2),
+                            modelColor.opacity(step.status == .running ? 0.15 : 0.04)
+                        ],
+                        startPoint: .top, endPoint: .bottom
+                    ),
+                    lineWidth: 0.75
                 )
         )
+        .shadow(color: step.status == .running ? modelColor.opacity(0.22) : .clear, radius: 26, x: 0, y: 0)
+        .shadow(color: .black.opacity(0.55), radius: 16, x: 0, y: 6)
     }
 
     // ── Header ────────────────────────────────────────────────────────────
@@ -157,7 +190,12 @@ struct StepCardView: View {
         }
         .padding(.horizontal, 12)
         .padding(.vertical, 8)
-        .background(modelColor.opacity(0.07))
+        .background(
+            LinearGradient(
+                colors: [modelColor.opacity(step.status == .running ? 0.16 : 0.1), modelColor.opacity(0.03)],
+                startPoint: .top, endPoint: .bottom
+            )
+        )
     }
 
     private var statusDot: some View {
@@ -165,6 +203,7 @@ struct StepCardView: View {
             Circle()
                 .fill(dotColor)
                 .frame(width: 5, height: 5)
+                .shadow(color: dotColor.opacity(0.8), radius: 4, x: 0, y: 0)
             if step.status == .running {
                 Circle()
                     .stroke(modelColor.opacity(0.35), lineWidth: 1)
@@ -307,9 +346,18 @@ struct VocalInterfaceHUD: View {
             .background(accent.opacity(0.08))
             .clipShape(RoundedRectangle(cornerRadius: 8))
             .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(accent.opacity(0.35), lineWidth: 0.5)
+                LinearGradient(
+                    colors: [Color.white.opacity(0.05), Color.clear],
+                    startPoint: .top, endPoint: .init(x: 0.5, y: 0.8)
+                )
+                .clipShape(RoundedRectangle(cornerRadius: 8))
             )
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(accent.opacity(0.4), lineWidth: 0.5)
+            )
+            .shadow(color: active ? accent.opacity(0.3) : .clear, radius: 10, x: 0, y: 0)
+            .shadow(color: .black.opacity(0.3), radius: 4, x: 0, y: 2)
         }
         .buttonStyle(.plain)
     }

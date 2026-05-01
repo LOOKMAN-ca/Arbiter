@@ -56,8 +56,16 @@ struct PipelinePreviewView: View {
                 nodeBox(label: "CLAUDE", sub: "REVISION",  color: .arbiterCyan,        small: true)
             }
             .padding(8)
+            .background(.ultraThinMaterial)
             .background(Color.arbiterSurface)
             .clipShape(RoundedRectangle(cornerRadius: 10))
+            .overlay(
+                LinearGradient(
+                    colors: [Color.white.opacity(0.04), Color.clear],
+                    startPoint: .top, endPoint: .init(x: 0.5, y: 0.6)
+                )
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+            )
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(
@@ -65,6 +73,7 @@ struct PipelinePreviewView: View {
                         style: StrokeStyle(lineWidth: 0.5, dash: [4, 4])
                     )
             )
+            .shadow(color: .black.opacity(0.4), radius: 10, x: 0, y: 4)
         }
     }
 
@@ -83,9 +92,17 @@ struct PipelinePreviewView: View {
         .background(color.opacity(0.05))
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(color.opacity(0.3), lineWidth: 0.5)
+            LinearGradient(
+                colors: [Color.white.opacity(0.05), Color.clear],
+                startPoint: .top, endPoint: .init(x: 0.5, y: 0.8)
+            )
+            .clipShape(RoundedRectangle(cornerRadius: 10))
         )
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(color.opacity(0.35), lineWidth: 0.5)
+        )
+        .shadow(color: color.opacity(0.12), radius: 6, x: 0, y: 2)
     }
 
     private var arrow: some View {

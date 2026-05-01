@@ -38,9 +38,17 @@ struct ValidationResultView: View {
             .background(verdictColor.opacity(0.05))
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(verdictColor.opacity(0.3), lineWidth: 0.5)
+                LinearGradient(
+                    colors: [Color.white.opacity(0.05), Color.clear],
+                    startPoint: .top, endPoint: .init(x: 0.5, y: 0.6)
+                )
+                .clipShape(RoundedRectangle(cornerRadius: 10))
             )
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(verdictColor.opacity(0.35), lineWidth: 0.5)
+            )
+            .shadow(color: verdictColor.opacity(0.15), radius: 8, x: 0, y: 3)
 
             // ── Score grid ────────────────────────────────────────────────
             scoreGrid
@@ -98,9 +106,17 @@ struct ValidationResultView: View {
         .background(accent.opacity(0.05))
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(accent.opacity(0.2), lineWidth: 0.5)
+            LinearGradient(
+                colors: [Color.white.opacity(0.06), Color.clear],
+                startPoint: .top, endPoint: .init(x: 0.5, y: 0.7)
+            )
+            .clipShape(RoundedRectangle(cornerRadius: 10))
         )
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(accent.opacity(0.22), lineWidth: 0.5)
+        )
+        .shadow(color: accent.opacity(0.18), radius: 6, x: 0, y: 2)
     }
 
     // MARK: — Suggestions

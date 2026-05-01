@@ -68,7 +68,12 @@ struct FAEPanelView: View {
         }
         .padding(.horizontal, 16)
         .frame(height: 40)
-        .background(Color.black.opacity(0.3))
+        .background(
+            LinearGradient(
+                colors: [Color.black.opacity(0.5), Color.black.opacity(0.2)],
+                startPoint: .top, endPoint: .bottom
+            )
+        )
     }
 
     private var attachedBadge: some View {
@@ -272,12 +277,21 @@ struct FAEPanelView: View {
             }
         }
         .padding(10)
-        .background(Color.arbiterCyan.opacity(0.03))
+        .background(.ultraThinMaterial)
+        .background(Color.arbiterCyan.opacity(0.04))
         .clipShape(RoundedRectangle(cornerRadius: 8))
         .overlay(
-            RoundedRectangle(cornerRadius: 8)
-                .stroke(Color.arbiterCyan.opacity(0.2), lineWidth: 0.5)
+            LinearGradient(
+                colors: [Color.white.opacity(0.04), Color.clear],
+                startPoint: .top, endPoint: .init(x: 0.5, y: 0.6)
+            )
+            .clipShape(RoundedRectangle(cornerRadius: 8))
         )
+        .overlay(
+            RoundedRectangle(cornerRadius: 8)
+                .stroke(Color.arbiterCyan.opacity(0.25), lineWidth: 0.5)
+        )
+        .shadow(color: Color.arbiterCyan.opacity(0.08), radius: 8, x: 0, y: 2)
     }
 }
 

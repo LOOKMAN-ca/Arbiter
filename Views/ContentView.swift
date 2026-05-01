@@ -168,6 +168,9 @@ struct ContentView: View {
                                 .clipShape(RoundedRectangle(cornerRadius: 3))
                         }
                     }
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 5)
+                    .glassEffect(.regular.tint(showFAE ? .cyan : .clear).interactive(), in: .rect(cornerRadius: 6))
                 }
                 .buttonStyle(.plain)
 
@@ -176,6 +179,8 @@ struct ContentView: View {
                 } label: {
                     Image(systemName: "slider.horizontal.3")
                         .foregroundColor(.arbiterCyan.opacity(0.85))
+                        .padding(6)
+                        .glassEffect(.regular.interactive(), in: .rect(cornerRadius: 6))
                 }
                 .buttonStyle(.plain)
             }
@@ -191,6 +196,7 @@ struct ContentView: View {
             Circle()
                 .fill(active ? Color.arbiterCyan : Color.white.opacity(0.1))
                 .frame(width: 5, height: 5)
+                .shadow(color: active ? Color.arbiterCyan.opacity(0.7) : .clear, radius: 4, x: 0, y: 0)
             Text(label)
                 .font(ArbiterFont.mono(9))
                 .foregroundColor(active ? .white : .white.opacity(0.5))

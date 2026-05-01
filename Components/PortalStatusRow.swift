@@ -49,6 +49,13 @@ struct PortalStatusRow: View {
         .padding(.vertical, 5)
         .background(rowBackground)
         .clipShape(RoundedRectangle(cornerRadius: 6))
+        .overlay(alignment: .leading) {
+            Capsule()
+                .fill(dotColor.opacity(0.5))
+                .frame(width: 2)
+                .padding(.vertical, 3)
+                .padding(.leading, 1)
+        }
     }
 
     // MARK: - Sub-views
@@ -57,6 +64,7 @@ struct PortalStatusRow: View {
         Circle()
             .fill(dotColor)
             .frame(width: 5, height: 5)
+            .shadow(color: dotColor.opacity(0.7), radius: 4, x: 0, y: 0)
     }
 
     private var typeBadge: some View {

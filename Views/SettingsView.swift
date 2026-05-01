@@ -138,7 +138,18 @@ struct SettingsView: View {
             Button("✕") { dismiss() }.buttonStyle(.plain)
         }
         .padding(18)
-        .background(Color.black.opacity(0.4))
+        .background(
+            LinearGradient(
+                colors: [Color.black.opacity(0.6), Color.black.opacity(0.3)],
+                startPoint: .top, endPoint: .bottom
+            )
+        )
+        .overlay(
+            Rectangle()
+                .fill(Color.arbiterBorder)
+                .frame(height: 0.5),
+            alignment: .bottom
+        )
     }
 
     private var footer: some View {
@@ -152,12 +163,31 @@ struct SettingsView: View {
                 .background(Color.arbiterCyan.opacity(0.07))
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.arbiterCyan, lineWidth: 0.5)
+                    LinearGradient(
+                        colors: [Color.white.opacity(0.06), Color.clear],
+                        startPoint: .top, endPoint: .init(x: 0.5, y: 0.7)
+                    )
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
                 )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.arbiterCyan.opacity(0.6), lineWidth: 0.5)
+                )
+                .shadow(color: Color.arbiterCyan.opacity(0.15), radius: 8, x: 0, y: 3)
         }
         .padding(16)
-        .background(Color.black.opacity(0.3))
+        .background(
+            LinearGradient(
+                colors: [Color.black.opacity(0.2), Color.black.opacity(0.4)],
+                startPoint: .top, endPoint: .bottom
+            )
+        )
+        .overlay(
+            Rectangle()
+                .fill(Color.arbiterBorder)
+                .frame(height: 0.5),
+            alignment: .top
+        )
     }
 
     // MARK: — Test helpers

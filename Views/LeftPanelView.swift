@@ -97,11 +97,19 @@ struct LeftPanelView: View {
             Button("FIX") { showSettings = true }.buttonStyle(.link)
         }
         .padding(10)
-        .background(Color.orange.opacity(0.1))
+        .background(Color.orange.opacity(0.08))
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .overlay(
             RoundedRectangle(cornerRadius: 10)
-                .stroke(Color.orange.opacity(0.3), lineWidth: 0.5)
+                .stroke(Color.orange.opacity(0.35), lineWidth: 0.5)
         )
+        .overlay(alignment: .leading) {
+            RoundedRectangle(cornerRadius: 2)
+                .fill(Color.orange.opacity(0.75))
+                .frame(width: 2)
+                .padding(.vertical, 4)
+                .padding(.leading, 4)
+        }
+        .shadow(color: .orange.opacity(0.15), radius: 10, x: 0, y: 3)
     }
 }
