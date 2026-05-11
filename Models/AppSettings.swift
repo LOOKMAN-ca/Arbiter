@@ -3,19 +3,13 @@ import Combine
 
 final class AppSettings: ObservableObject {
 
-    // MARK: — Login Credentials (Keychain-backed)
+    // MARK: — API Keys (Keychain-backed)
 
-    @Published var claudeEmail:    String = "" {
-        didSet { KeychainHelper.save(key: "claudeEmail",    value: claudeEmail) }
+    @Published var claudeApiKey: String = "" {
+        didSet { KeychainHelper.save(key: "claudeApiKey", value: claudeApiKey) }
     }
-    @Published var claudePassword: String = "" {
-        didSet { KeychainHelper.save(key: "claudePassword", value: claudePassword) }
-    }
-    @Published var geminiEmail:    String = "" {
-        didSet { KeychainHelper.save(key: "geminiEmail",    value: geminiEmail) }
-    }
-    @Published var geminiPassword: String = "" {
-        didSet { KeychainHelper.save(key: "geminiPassword", value: geminiPassword) }
+    @Published var geminiApiKey: String = "" {
+        didSet { KeychainHelper.save(key: "geminiApiKey", value: geminiApiKey) }
     }
 
     // MARK: — Model Selection (UserDefaults-backed)
@@ -47,10 +41,12 @@ final class AppSettings: ObservableObject {
     // MARK: — Init
 
     init() {
-        self.claudeEmail    = KeychainHelper.load(key: "claudeEmail")
-        self.claudePassword = KeychainHelper.load(key: "claudePassword")
-        self.geminiEmail    = KeychainHelper.load(key: "geminiEmail")
-        self.geminiPassword = KeychainHelper.load(key: "geminiPassword")
+        // Load from new key, fall back to legacy key on first migration
+        let claudeKey = KeychainHelper.load(key: "claudeApiKey")
+        self.claudeApiKey = claudeKey.isEmpty ? KeychainHelper.load(key: "claudePassword") : claudeKey
+
+        let geminiKey = KeychainHelper.load(key: "geminiApiKey")
+        self.geminiApiKey = geminiKey.isEmpty ? KeychainHelper.load(key: "geminiPassword") : geminiKey
 
         if let saved = UserDefaults.standard.string(forKey: "claudeModel"), !saved.isEmpty {
             self.claudeModel = saved

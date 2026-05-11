@@ -4,16 +4,17 @@ struct SettingsView: View {
     @EnvironmentObject var settings: AppSettings
     @Environment(\.dismiss) var dismiss
 
-    @State private var claudeEmail          = ""
-    @State private var claudePassword       = ""
-    @State private var geminiEmail          = ""
-    @State private var geminiPassword       = ""
-    @State private var claudeModel          = ""
-    @State private var geminiModel         = ""
-    @State private var systemPromptOverride = ""
+    @State private var claudeApiKey          = ""
+    @State private var geminiApiKey          = ""
+    @State private var claudeModel           = ""
+    @State private var geminiModel           = ""
+    @State private var systemPromptOverride  = ""
 
     @State private var claudeTest: TestState = .idle
     @State private var geminiTest: TestState = .idle
+
+    @State private var showClaudeAuth = false
+    @State private var showGeminiAuth = false
 
     enum TestState { case idle, testing, ok, fail }
 
@@ -35,38 +36,92 @@ struct SettingsView: View {
         }
         .background(Color.arbiterBg)
         .onAppear {
-            claudeEmail          = settings.claudeEmail
-            claudePassword       = settings.claudePassword
-            geminiEmail          = settings.geminiEmail
-            geminiPassword       = settings.geminiPassword
+            claudeApiKey         = settings.claudeApiKey
+            geminiApiKey         = settings.geminiApiKey
             claudeModel          = settings.claudeModel
             geminiModel          = settings.geminiModel
             systemPromptOverride = settings.systemPromptOverride
+        }
+        .sheet(isPresented: $showClaudeAuth) {
+            WebAuthSheet(
+                title:    "Sign in — Anthropic Console",
+                loginURL: URL(string: "https://console.anthropic.com/login")!,
+                apiKey:   $claudeApiKey
+            )
+        }
+        .sheet(isPresented: $showGeminiAuth) {
+            WebAuthSheet(
+                title:    "Sign in — Google AI Studio",
+                loginURL: URL(string: "https://aistudio.google.com")!,
+                apiKey:   $geminiApiKey
+            )
         }
     }
 
     // MARK: — Claude column
 
     private var claudeColumn: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Text("ANTHROPIC CLAUDE")
-                .font(ArbiterFont.mono(10).bold())
-                .foregroundColor(.arbiterCyan)
+        VStack(alignment: .leading, spacing: 14) {
+            HStack(spacing: 8) {
+                Text("ANTHROPIC CLAUDE")
+                    .font(ArbiterFont.mono(10).bold())
+                    .foregroundColor(.arbiterCyan)
+                Spacer()
+                connectionBadge(claudeTest)
+            }
 
-            TextField("EMAIL", text: $claudeEmail)
-                .textFieldStyle(.roundedBorder)
-                .font(ArbiterFont.mono(11))
-                .onChange(of: claudeEmail) { _, _ in claudeTest = .idle }
+            // Sign-in card
+            VStack(alignment: .leading, spacing: 10) {
+                Text("Sign in to the Anthropic Console with your email and password to access your API keys.")
+                    .font(ArbiterFont.mono(9))
+                    .foregroundColor(.white.opacity(0.45))
+                    .fixedSize(horizontal: false, vertical: true)
 
-            SecureField("PASSWORD", text: $claudePassword)
-                .textFieldStyle(.roundedBorder)
-                .font(ArbiterFont.mono(11))
-                .onChange(of: claudePassword) { _, _ in claudeTest = .idle }
+                Button {
+                    claudeTest = .idle
+                    showClaudeAuth = true
+                } label: {
+                    HStack(spacing: 6) {
+                        Image(systemName: "person.badge.key.fill")
+                            .font(.system(size: 11))
+                        Text("SIGN IN TO ANTHROPIC CONSOLE")
+                            .font(ArbiterFont.mono(9).bold())
+                    }
+                    .foregroundColor(.arbiterCyan)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 8)
+                    .background(Color.arbiterCyan.opacity(0.06))
+                    .clipShape(RoundedRectangle(cornerRadius: 7))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 7)
+                            .stroke(Color.arbiterCyan.opacity(0.35), lineWidth: 0.5)
+                    )
+                }
+                .buttonStyle(.plain)
+            }
+            .padding(10)
+            .background(Color.arbiterCyan.opacity(0.03))
+            .clipShape(RoundedRectangle(cornerRadius: 8))
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(Color.arbiterCyan.opacity(0.15), lineWidth: 0.5)
+            )
+
+            // Manual key entry
+            VStack(alignment: .leading, spacing: 5) {
+                Text("API KEY")
+                    .font(ArbiterFont.mono(8))
+                    .foregroundColor(.white.opacity(0.35))
+                SecureField("Paste key here", text: $claudeApiKey)
+                    .textFieldStyle(.roundedBorder)
+                    .font(ArbiterFont.mono(11))
+                    .onChange(of: claudeApiKey) { _, _ in claudeTest = .idle }
+            }
 
             Button(claudeTestLabel) { testClaude() }
-                .font(ArbiterFont.mono(10))
+                .font(ArbiterFont.mono(9))
                 .foregroundColor(testStateColor(claudeTest))
-                .disabled(claudeTest == .testing || claudePassword.isEmpty)
+                .disabled(claudeTest == .testing || claudeApiKey.isEmpty)
 
             Picker("MODEL", selection: $claudeModel) {
                 ForEach(ModelCatalog.claude) { Text($0.label).tag($0.id) }
@@ -79,25 +134,67 @@ struct SettingsView: View {
     // MARK: — Gemini column
 
     private var geminiColumn: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Text("GOOGLE GEMINI")
-                .font(ArbiterFont.mono(10).bold())
-                .foregroundColor(.arbiterCyan)
+        VStack(alignment: .leading, spacing: 14) {
+            HStack(spacing: 8) {
+                Text("GOOGLE GEMINI")
+                    .font(ArbiterFont.mono(10).bold())
+                    .foregroundColor(.arbiterCyan)
+                Spacer()
+                connectionBadge(geminiTest)
+            }
 
-            TextField("EMAIL", text: $geminiEmail)
-                .textFieldStyle(.roundedBorder)
-                .font(ArbiterFont.mono(11))
-                .onChange(of: geminiEmail) { _, _ in geminiTest = .idle }
+            // Sign-in card
+            VStack(alignment: .leading, spacing: 10) {
+                Text("Sign in to Google AI Studio with your Google account to access your API keys.")
+                    .font(ArbiterFont.mono(9))
+                    .foregroundColor(.white.opacity(0.45))
+                    .fixedSize(horizontal: false, vertical: true)
 
-            SecureField("PASSWORD", text: $geminiPassword)
-                .textFieldStyle(.roundedBorder)
-                .font(ArbiterFont.mono(11))
-                .onChange(of: geminiPassword) { _, _ in geminiTest = .idle }
+                Button {
+                    geminiTest = .idle
+                    showGeminiAuth = true
+                } label: {
+                    HStack(spacing: 6) {
+                        Image(systemName: "person.badge.key.fill")
+                            .font(.system(size: 11))
+                        Text("SIGN IN TO GOOGLE AI STUDIO")
+                            .font(ArbiterFont.mono(9).bold())
+                    }
+                    .foregroundColor(.arbiterCyan)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 8)
+                    .background(Color.arbiterCyan.opacity(0.06))
+                    .clipShape(RoundedRectangle(cornerRadius: 7))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 7)
+                            .stroke(Color.arbiterCyan.opacity(0.35), lineWidth: 0.5)
+                    )
+                }
+                .buttonStyle(.plain)
+            }
+            .padding(10)
+            .background(Color.arbiterCyan.opacity(0.03))
+            .clipShape(RoundedRectangle(cornerRadius: 8))
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(Color.arbiterCyan.opacity(0.15), lineWidth: 0.5)
+            )
+
+            // Manual key entry
+            VStack(alignment: .leading, spacing: 5) {
+                Text("API KEY")
+                    .font(ArbiterFont.mono(8))
+                    .foregroundColor(.white.opacity(0.35))
+                SecureField("Paste key here", text: $geminiApiKey)
+                    .textFieldStyle(.roundedBorder)
+                    .font(ArbiterFont.mono(11))
+                    .onChange(of: geminiApiKey) { _, _ in geminiTest = .idle }
+            }
 
             Button(geminiTestLabel) { testGemini() }
-                .font(ArbiterFont.mono(10))
+                .font(ArbiterFont.mono(9))
                 .foregroundColor(testStateColor(geminiTest))
-                .disabled(geminiTest == .testing || geminiPassword.isEmpty)
+                .disabled(geminiTest == .testing || geminiApiKey.isEmpty)
 
             Picker("MODEL", selection: $geminiModel) {
                 ForEach(ModelCatalog.gemini) { Text($0.label).tag($0.id) }
@@ -105,6 +202,28 @@ struct SettingsView: View {
             .font(ArbiterFont.mono(10))
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
+    // MARK: — Connection badge
+
+    @ViewBuilder
+    private func connectionBadge(_ state: TestState) -> some View {
+        switch state {
+        case .ok:
+            Label("CONNECTED", systemImage: "checkmark.circle.fill")
+                .font(ArbiterFont.mono(8).bold())
+                .foregroundColor(.green)
+        case .fail:
+            Label("FAILED", systemImage: "xmark.circle.fill")
+                .font(ArbiterFont.mono(8).bold())
+                .foregroundColor(.red)
+        case .testing:
+            Label("VERIFYING", systemImage: "arrow.triangle.2.circlepath")
+                .font(ArbiterFont.mono(8))
+                .foregroundColor(.arbiterCyan.opacity(0.7))
+        case .idle:
+            EmptyView()
+        }
     }
 
     // MARK: — System prompt section
@@ -197,10 +316,10 @@ struct SettingsView: View {
 
     private func testLabel(_ state: TestState) -> String {
         switch state {
-        case .idle:    return "TEST CONNECTION"
-        case .testing: return "TESTING…"
-        case .ok:      return "CONNECTION OK ✓"
-        case .fail:    return "CONNECTION FAIL ✗"
+        case .idle:    return "VERIFY KEY"
+        case .testing: return "VERIFYING…"
+        case .ok:      return "KEY VERIFIED ✓"
+        case .fail:    return "VERIFICATION FAILED ✗"
         }
     }
 
@@ -216,7 +335,7 @@ struct SettingsView: View {
 
     private func testClaude() {
         claudeTest = .testing
-        let key   = claudePassword
+        let key   = claudeApiKey
         let model = claudeModel.isEmpty ? ModelCatalog.claude.first!.id : claudeModel
         Task {
             do {
@@ -227,12 +346,12 @@ struct SettingsView: View {
                     model:    model
                 )
                 await MainActor.run {
-                    claudeTest             = .ok
+                    claudeTest               = .ok
                     settings.claudeConnected = true
                 }
             } catch {
                 await MainActor.run {
-                    claudeTest             = .fail
+                    claudeTest               = .fail
                     settings.claudeConnected = false
                 }
             }
@@ -241,18 +360,18 @@ struct SettingsView: View {
 
     private func testGemini() {
         geminiTest = .testing
-        let key   = geminiPassword
+        let key   = geminiApiKey
         let model = geminiModel.isEmpty ? ModelCatalog.gemini.first!.id : geminiModel
         Task {
             do {
                 try await GeminiClient.ping(apiKey: key, model: model)
                 await MainActor.run {
-                    geminiTest             = .ok
+                    geminiTest               = .ok
                     settings.geminiConnected = true
                 }
             } catch {
                 await MainActor.run {
-                    geminiTest             = .fail
+                    geminiTest               = .fail
                     settings.geminiConnected = false
                 }
             }
@@ -262,12 +381,10 @@ struct SettingsView: View {
     // MARK: — Save
 
     private func saveAndDismiss() {
-        settings.claudeEmail          = claudeEmail
-        settings.claudePassword       = claudePassword
-        settings.geminiEmail          = geminiEmail
-        settings.geminiPassword       = geminiPassword
-        settings.claudeModel          = claudeModel
-        settings.geminiModel          = geminiModel
+        settings.claudeApiKey        = claudeApiKey
+        settings.geminiApiKey        = geminiApiKey
+        settings.claudeModel         = claudeModel
+        settings.geminiModel         = geminiModel
         settings.systemPromptOverride = systemPromptOverride
         dismiss()
     }
