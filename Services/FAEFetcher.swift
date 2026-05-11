@@ -137,7 +137,7 @@ actor FAEFetcher {
         case .sparql:   return normalizeSPARQL(data, portalID: plan.portal.id)
         case .rest:     return normalizeGenericJSON(data, portalID: plan.portal.id)
         case .json:     return normalizeGenericJSON(data, portalID: plan.portal.id)
-        case .sdmx:     return normalizeSDMX(data, portalID: plan.portal.id)
+        case .sdmx:     return normalizeSDMX(data, plan: plan)
         default:        return normalizeGenericJSON(data, portalID: plan.portal.id)
         }
     }
@@ -249,39 +249,65 @@ actor FAEFetcher {
         }
     }
 
-    // MARK: SDMX Normalizer (basic)
+    // MARK: SDMX Normalizer
 
-    private static func normalizeSDMX(_ data: Data, portalID: String) -> [FAEResultItem] {
+    // Parses an SDMX 2.1 Structure document (dataflow catalog) returned by
+    // …/dataflow/all/all/latest?detail=allstubs.  Extracts English-language
+    // <Name> elements and filters them against the search keyword so only
+    // topically relevant dataflows are surfaced.  Falls back to legacy
+    // SeriesKey parsing for older data-response formats.
+    private static func normalizeSDMX(_ data: Data, plan: FAEQueryPlan) -> [FAEResultItem] {
+        let portalID   = plan.portal.id
+        let portalName = plan.portal.name
+        let keyword    = plan.term.lowercased()
         guard let xmlString = String(data: data, encoding: .utf8) else { return [] }
 
         var items: [FAEResultItem] = []
-        let seriesPattern = #"<generic:SeriesKey>.*?</generic:SeriesKey>"#
-        let range = xmlString.startIndex..<xmlString.endIndex
-        let regex = try? NSRegularExpression(pattern: seriesPattern, options: [.dotMatchesLineSeparators])
-        let matches = regex?.matches(in: xmlString, range: NSRange(range, in: xmlString)) ?? []
 
-        for match in matches.prefix(10) {
-            if let matchRange = Range(match.range, in: xmlString) {
-                let snippet = String(xmlString[matchRange])
+        // Primary path: extract English Name elements from the catalog document.
+        // Matches both prefixed (<com:Name>, <str:Name>) and unprefixed (<Name>).
+        let namePattern = #"<(?:\w+:)?Name\b[^>]*xml:lang="en"[^>]*>([^<]{4,250})</(?:\w+:)?Name>"#
+        if let regex = try? NSRegularExpression(pattern: namePattern) {
+            let nsRange = NSRange(xmlString.startIndex..., in: xmlString)
+            for match in regex.matches(in: xmlString, range: nsRange) {
+                guard let range = Range(match.range(at: 1), in: xmlString) else { continue }
+                let name = String(xmlString[range]).trimmingCharacters(in: .whitespacesAndNewlines)
+                guard !name.isEmpty else { continue }
+                guard keyword.isEmpty || name.lowercased().contains(keyword) else { continue }
                 items.append(FAEResultItem(
-                    id: UUID(),
-                    portalID: portalID,
-                    title: "SDMX Series (\(portalID))",
-                    snippet: String(snippet.prefix(300)),
-                    sourceURL: nil,
-                    publicationDate: nil
+                    id: UUID(), portalID: portalID,
+                    title: name,
+                    snippet: "SDMX — \(portalName)",
+                    sourceURL: nil, publicationDate: nil
                 ))
+                if items.count >= 10 { break }
             }
         }
 
-        if items.isEmpty && !xmlString.isEmpty {
+        // Fallback: legacy SeriesKey parsing for SDMX data (non-catalog) responses.
+        if items.isEmpty {
+            let seriesPattern = #"<(?:generic:)?SeriesKey>.*?</(?:generic:)?SeriesKey>"#
+            if let regex = try? NSRegularExpression(pattern: seriesPattern, options: .dotMatchesLineSeparators) {
+                let nsRange = NSRange(xmlString.startIndex..., in: xmlString)
+                for match in regex.matches(in: xmlString, range: nsRange).prefix(10) {
+                    if let matchRange = Range(match.range, in: xmlString) {
+                        items.append(FAEResultItem(
+                            id: UUID(), portalID: portalID,
+                            title: "SDMX Series — \(portalName)",
+                            snippet: String(String(xmlString[matchRange]).prefix(300)),
+                            sourceURL: nil, publicationDate: nil
+                        ))
+                    }
+                }
+            }
+        }
+
+        if items.isEmpty, xmlString.count > 50 {
             items.append(FAEResultItem(
-                id: UUID(),
-                portalID: portalID,
-                title: "SDMX Data (\(portalID))",
+                id: UUID(), portalID: portalID,
+                title: "SDMX Response — \(portalName)",
                 snippet: String(xmlString.prefix(300)),
-                sourceURL: nil,
-                publicationDate: nil
+                sourceURL: nil, publicationDate: nil
             ))
         }
 
@@ -316,6 +342,15 @@ actor FAEFetcher {
 
         if rawItems.isEmpty, let root = try? JSONSerialization.jsonObject(with: data) as? [[String: Any]] {
             rawItems = root
+        }
+
+        // Handle APIs that return [pagination_obj, [results_array]] at the root
+        // (World Bank v2 pattern: [{page,total,...}, [{id,name,...}...]]).
+        if rawItems.isEmpty,
+           let root = try? JSONSerialization.jsonObject(with: data) as? [Any],
+           root.count >= 2,
+           let arr = root.last as? [[String: Any]] {
+            rawItems = arr
         }
 
         let titleKeys = ["title", "name", "label", "full_name", "display_name"]

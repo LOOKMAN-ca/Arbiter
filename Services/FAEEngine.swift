@@ -168,7 +168,7 @@ enum FAEEngine {
         for portal in portals {
             if strictAccuracy && portal.tier != .verified { continue }
 
-            if strictAccuracy && !portal.domains.intersection(expanded.inferredDomains).isEmpty == false {
+            if strictAccuracy && portal.domains.intersection(expanded.inferredDomains).isEmpty {
                 let isGeneralist = portal.domains.contains("general") || portal.domains.contains("government")
                 if !isGeneralist { continue }
             }
@@ -254,7 +254,7 @@ enum FAEEngine {
         case .sparql:
             return buildSPARQLEndpoint(portal: portal, keyword: keyword)
         case .sdmx:
-            return buildSDMXEndpoint(portal: portal)
+            return buildSDMXEndpoint(portal: portal, keyword: keyword)
         case .github:
             return buildGitHubEndpoint(portal: portal, keyword: keyword)
         case .geojson, .wfs, .csv, .json, .docIndex:
@@ -277,7 +277,10 @@ enum FAEEngine {
 
     private nonisolated static func buildRESTEndpoint(portal: FAEPortal, keyword: String) -> URL? {
         var components = URLComponents(url: portal.baseURL, resolvingAgainstBaseURL: false)
-        components?.queryItems = [URLQueryItem(name: "q", value: keyword)]
+        components?.queryItems = [
+            URLQueryItem(name: "q", value: keyword),
+            URLQueryItem(name: "format", value: "json"),
+        ]
         return components?.url
     }
 
@@ -294,9 +297,21 @@ enum FAEEngine {
         return components?.url
     }
 
-    private nonisolated static func buildSDMXEndpoint(portal: FAEPortal) -> URL? {
+    // Queries the SDMX 2.1 dataflow catalog rather than a data endpoint.
+    // SDMX doesn't support free-text search; we fetch all stubs and let the
+    // normalizer filter by keyword against the English-language Name elements.
+    // Path construction: strip trailing /data[/] from the base URL to reach
+    // the service root, then append the standard catalog path.
+    private nonisolated static func buildSDMXEndpoint(portal: FAEPortal, keyword: String) -> URL? {
         var components = URLComponents(url: portal.baseURL, resolvingAgainstBaseURL: false)
-        components?.queryItems = [URLQueryItem(name: "detail", value: "full")]
+        var path = components?.path ?? ""
+        for suffix in ["/data/", "/data"] where path.hasSuffix(suffix) {
+            path = String(path.dropLast(suffix.count))
+        }
+        if !path.hasSuffix("/") { path += "/" }
+        path += "dataflow/all/all/latest"
+        components?.path = path
+        components?.queryItems = [URLQueryItem(name: "detail", value: "allstubs")]
         return components?.url
     }
 

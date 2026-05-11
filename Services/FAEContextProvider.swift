@@ -31,6 +31,7 @@ final class FAEManager: ObservableObject {
 
     private let fetcher = FAEFetcher()
     private var searchTask: Task<Void, Never>?
+    private var searchPortals: [FAEPortal] = []
 
     // MARK: - Search
 
@@ -43,6 +44,7 @@ final class FAEManager: ObservableObject {
         failedPortals = [:]
         activePlans = []
         isSearching = true
+        searchPortals = portals ?? FAEPortal.registry
 
         searchTask = Task {
             let expanded = FAEEngine.expand(topic: topic)
@@ -119,7 +121,8 @@ final class FAEManager: ObservableObject {
             if let url = item.sourceURL {
                 lines.append("    Source: \(url.absoluteString)")
             }
-            let portal = FAEPortal.registry.first { $0.id == item.portalID }
+            let portal = searchPortals.first { $0.id == item.portalID }
+                ?? FAEPortal.registry.first { $0.id == item.portalID }
             if let portal {
                 lines.append("    Portal: \(portal.name) (\(portal.tier.label))")
             }
@@ -135,7 +138,8 @@ final class FAEManager: ObservableObject {
     var filteredResults: [FAEResultItem] {
         results.filter { item in
             if let tierFilter = filterTier {
-                let portal = FAEPortal.registry.first { $0.id == item.portalID }
+                let portal = searchPortals.first { $0.id == item.portalID }
+                    ?? FAEPortal.registry.first { $0.id == item.portalID }
                 if portal?.tier != tierFilter { return false }
             }
             return true
@@ -169,10 +173,10 @@ extension FAEManager: ConversationContextProvider {
 
     func contextFragments(for prompt: String) async -> [ContextFragment] {
         let expanded = FAEEngine.expand(topic: prompt)
-        let plans = FAEEngine.plan(expanded: expanded, strictAccuracy: true)
+        let portals = searchPortals.isEmpty ? FAEPortal.registry : searchPortals
+        let plans = FAEEngine.plan(expanded: expanded, portals: portals, strictAccuracy: strictAccuracy)
         let limitedPlans = Array(plans.prefix(20))
 
-        let fetcher = FAEFetcher()
         var allItems: [FAEResultItem] = []
 
         let stream = await fetcher.execute(limitedPlans)

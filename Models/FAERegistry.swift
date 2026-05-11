@@ -107,7 +107,7 @@ extension FAEPortal {
             historical: true,
             domains: ["statistics", "economics", "demographics", "labor", "health"])
 
-        add("EUR_ITA", "Eurostat", .rest, .verified,
+        add("EUR_ITA", "Eurostat (SDMX)", .sdmx, .verified,
             "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/",
             historical: true,
             domains: ["statistics", "economics", "demographics", "eu"])
@@ -121,8 +121,8 @@ extension FAEPortal {
             "https://zenodo.org/api/records",
             domains: ["research", "science"])
 
-        add("SCI_WBD", "World Bank (Italy)", .rest, .verified,
-            "https://api.worldbank.org/v2/country/ita/indicator/",
+        add("SCI_WBD", "World Bank Open Data", .rest, .verified,
+            "https://api.worldbank.org/v2/indicator",
             historical: true,
             domains: ["economics", "development", "statistics"])
 

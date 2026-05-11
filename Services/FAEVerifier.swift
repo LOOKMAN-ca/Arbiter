@@ -55,13 +55,19 @@ actor FAEVerifier {
         entries: [PortalEntry],
         continuation: AsyncStream<VerificationEvent>.Continuation
     ) async {
-        let total    = entries.count
+        // confirmed_existence_only entries have unverified URLs (often bare website homepages,
+        // not API endpoints). Probing them produces hundreds of expected HTML-shape failures
+        // that obscure genuinely broken documented-endpoint portals and waste probe time.
+        // They are already excluded from the active registry, so skipping them here is safe.
         var updated  = entries
         let session  = FAEProbeSession.make()
 
         var inFlight: Int                 = 0
         var hostInFlight: [String: Int]   = [:]
-        var pending: [(index: Int, entry: PortalEntry)] = Array(entries.enumerated()).map { ($0, $1) }
+        var pending: [(index: Int, entry: PortalEntry)] = entries.enumerated()
+            .filter { $0.element.verification != .confirmedExistenceOnly }
+            .map { ($0.offset, $0.element) }
+        let total = pending.count
         var completedCount = 0
 
         await withTaskGroup(of: (Int, ProbeRecord, ProbeOutcome).self) { group in
@@ -102,7 +108,7 @@ actor FAEVerifier {
             for await (origIdx, record, outcome) in group {
                 let host = entries[origIdx].url.host() ?? "unknown"
                 inFlight -= 1
-                hostInFlight[host, default: 1] -= 1
+                hostInFlight[host, default: 0] -= 1
                 completedCount += 1
 
                 // Persist probe results into entry
@@ -129,12 +135,16 @@ actor FAEVerifier {
         }
 
         // Persist to disk
-        let liveCount = updated.filter { $0.verification == .verifiedLive }.count
-        let passed    = liveCount >= FAEVerifier.qualityGate
+        let liveCount      = updated.filter { $0.verification == .verifiedLive }.count
+        // Quality gate: require at least qualityGate% of probed entries to be live,
+        // with a floor of 10. This avoids false FAIL when the registry is small or
+        // when an unusually large fraction of portals happen to be slow on a given run.
+        let gateThreshold  = max(FAEVerifier.qualityGate, total * 40 / 100)
+        let passed         = liveCount >= gateThreshold
 
         do {
             try FAERegistryLoader.saveVerified(updated)
-            logger.info("FAEVerifier: saved \(updated.count) entries. Live: \(liveCount), gate: \(passed ? "PASS" : "FAIL")")
+            logger.info("FAEVerifier: saved \(updated.count) entries. Probed: \(total), live: \(liveCount)/\(gateThreshold), gate: \(passed ? "PASS" : "FAIL")")
         } catch {
             logger.error("FAEVerifier: save failed: \(error.localizedDescription)")
         }
@@ -148,7 +158,7 @@ actor FAEVerifier {
         }
 
         if !passed {
-            logger.error("FAEVerifier: QUALITY GATE FAILED — \(liveCount)/\(FAEVerifier.qualityGate) verified-live entries. Check DNS, ATS entitlement, and User-Agent policy.")
+            logger.error("FAEVerifier: QUALITY GATE FAILED — \(liveCount)/\(gateThreshold) verified-live entries (probed \(total)). Check DNS, ATS entitlement, and User-Agent policy.")
         }
 
         continuation.yield(.done(entries: updated, liveCount: liveCount, qualityGatePassed: passed))
@@ -183,8 +193,7 @@ actor FAEVerifier {
             let live     = group.filter { $0.verification == .verifiedLive }.count
             let degraded = group.filter { $0.verification == .probedDegraded }.count
             let failed   = group.filter { $0.verification == .probedFailed }.count
-            let skipped  = group.filter { $0.consecutiveFailures == nil && $0.verification == $0.verification
-                && ($0.auth == .paidKey || $0.auth == .oauth) }.count
+            let skipped  = group.filter { $0.auth == .paidKey || $0.auth == .oauth }.count
             lines.append("| \(proto.rawValue) | \(group.count) | \(live) | \(degraded) | \(failed) | \(skipped) |")
         }
 

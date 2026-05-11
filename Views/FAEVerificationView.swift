@@ -162,12 +162,13 @@ struct FAEVerificationView: View {
                 Text(passed ? "QUALITY GATE PASSED" : "QUALITY GATE FAILED")
                     .font(ArbiterFont.mono(10).bold())
                     .foregroundColor(passed ? .green : .red)
-                Text("\(verification.liveCount) entries verified live (threshold: \(FAEVerifier.qualityGate))")
+                let threshold = max(FAEVerifier.qualityGate, verification.totalCount * 40 / 100)
+                Text("\(verification.liveCount) / \(threshold) live — \(verification.totalCount) probed (\(registry.rawEntries.count - verification.totalCount) unverified URLs skipped)")
                     .font(ArbiterFont.mono(9))
                     .foregroundColor(.white.opacity(0.6))
 
                 if !passed {
-                    Text("Check DNS, ATS entitlement (com.apple.security.network.client), and User-Agent policy before filing individual portal bugs.")
+                    Text("Check individual portal errors in the list below. Unverified-URL entries are skipped automatically.")
                         .font(ArbiterFont.mono(8))
                         .foregroundColor(.red.opacity(0.8))
                         .fixedSize(horizontal: false, vertical: true)
